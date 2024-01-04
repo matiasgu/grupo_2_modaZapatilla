@@ -6,7 +6,8 @@ Venta de zapatillas para hombres mujeres y niños. Gran variedad de modelos, tod
 <!-- descripciones de los integrante -->
 
 
-matias
-franco 
-carla 
-anabella
+- Gutierrez Matias Leonardo
+- Abalos Franco Rodrigo
+- Carla Mariela Vidal
+- Cajal Anabella
+- Peñalva claudio
