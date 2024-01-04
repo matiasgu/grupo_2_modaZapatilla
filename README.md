@@ -1,9 +1,9 @@
 <!-- descripcion del proyecto -->
-## Descripcion del proyecto 
+# Descripcion del proyecto 
 
 Venta de zapatillas para hombres mujeres y niños. Gran variedad de modelos, todos los números. Envíos a todo el país. Stock permanente.
 <!-- descripciones de los integrante -->
-# Integrantes
+## Integrantes
 
 - Gutierrez Matias Leonardo
 - Abalos Franco Rodrigo
@@ -11,7 +11,7 @@ Venta de zapatillas para hombres mujeres y niños. Gran variedad de modelos, tod
 - Cajal Anabella
 - Peñalva claudio
 <!-- Referentes del Mercado -->
-# Referentes del Mercado
+## Referentes del Mercado
 
 Estos son cinco referentes del mercado que hemos considerado para tomar ideas en nuestro proyecto:
 
