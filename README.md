@@ -5,11 +5,11 @@ Venta de zapatillas para hombres mujeres y niños. Gran variedad de modelos, tod
 <!-- descripciones de los integrante -->
 ## Integrantes
 
-- Gutierrez Matias Leonardo
-- Abalos Franco Rodrigo
-- Carla Mariela Vidal
-- Cajal Anabella
-- Peñalva claudio
+- Gutierrez Matias Leonardo (GitHub: matiasgu)
+- Abalos Franco Rodrigo (GitHub: franco40637)
+- Carla Mariela Vidal (GitHub: carlamv221)
+- Cajal Anabella (GitHub: anabellacajal)
+- Peñalva claudio (GitHub: kornmaster)
 <!-- Referentes del Mercado -->
 ## Referentes del Mercado
 
