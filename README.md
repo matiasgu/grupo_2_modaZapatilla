@@ -24,3 +24,10 @@ Estos son cinco referentes del mercado que hemos considerado para tomar ideas en
 4. **[Los Gallegos](https://www.calzadoslosgallegos.com.ar):** Esta pagina destaca por su diversidad de catálogo y la organización de sus productos.
 
 5. **[Sofi Calzados](https://www.soficalzados.com.ar):** Se destaca por su navegacion sencilla para el usuario y su catalogo.
+
+
+<!-- tablero de trabajo -->
+
+## Link del tablero de trabajo
+
+ https://trello.com/invite/b/8ee3idGv/ATTIdc80643bcd14ce77e78142cf216ec0e6EBB0028D/proyecto-moda-zapatilla
