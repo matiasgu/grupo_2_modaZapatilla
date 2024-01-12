@@ -31,3 +31,14 @@ Estos son cinco referentes del mercado que hemos considerado para tomar ideas en
 ## Link del tablero de trabajo
 
  https://trello.com/invite/b/8ee3idGv/ATTIdc80643bcd14ce77e78142cf216ec0e6EBB0028D/proyecto-moda-zapatilla
+
+
+ <!-- paleta de colores para el trabajo -->
+ 
+.color1 { #fb6900 }; 
+.color2 { #f63700 };
+.color3 { #004853 };
+.color4 { #007e80 };
+.color5 { #00b9bd };
+
+https://paletadecolores.com.ar/paleta/fb6900/f63700/004853/007e80/00b9bd/
