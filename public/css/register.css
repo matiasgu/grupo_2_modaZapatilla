@@ -33,7 +33,7 @@ h2 {
 
 label {
     display: flex;
-    align-items: center; /* Nueva línea para alinear el cuadro y el texto */
+    align-items: center; /*Nueva línea para alinear el cuadro y el texto */
     margin-top: 10px;
     color: #555;
 }
