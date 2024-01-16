@@ -1,14 +1,8 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #ebebeb;
+    background-color: #007e80 ;
     margin: 0;
 }
-
-/*header {
-    background-color: #00B9BD;
-    padding: 10px;
-    text-align: center;
-}diseño pensado quizas lo borre*/ 
 
 main {
     display: flex;
@@ -17,7 +11,7 @@ main {
     height: 100vh;
 }
 
-#registration-form {
+#registro-formulario {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 20px;
@@ -33,17 +27,16 @@ h2 {
 
 label {
     display: flex;
-    align-items: center; /*Nueva línea para alinear el cuadro y el texto */
+    align-items: center;
     margin-top: 10px;
     color: #555;
 }
 
 #acepto-terminos {
-    margin-left: 10px; /* para justar el espacio entre el cuadro y el texto según sea necesario */
-    width: 40px; /* Para ajustar el ancho del cuadro aquí */
-    height: 20px; /* Para modificar la altura del cuadro*/
-    }
-    
+    margin-left: 10px;
+    width: 40px;
+    height: 20px;
+}
 
 input {
     width: 100%;
@@ -76,9 +69,5 @@ button:hover {
 }
 
 #botones button {
-    flex: 48%;
-}
-
-#acepto-terminos {
-    margin-top: 10px;
+    flex: 100%;
 }

@@ -4,19 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/register.css">
-    <!-- Agregar enlaces a otros estilos o recursos que necesite -->
     <title>Registro de Usuario</title>
 </head>
 <body>
-    <!-- Estructura de la página de registro -->
     <header>
-        <!-- tengo que agregar contenido del encabezado si es necesario -->
+        <!-- Contenido del encabezado como el logo quizas ver mas adelante -->
     </header>
     <main>
-        <section id="registration-form">
+        <section id="registro-formulario">
             <h2>Registro de Usuario</h2>
-            <!--Formulario de registro -->
-            <form>
+            <!-- Formulario de registro -->
+            <form action="/registro" method="post">
                 <!-- Campo: Nombre -->
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Jose" required>
@@ -40,23 +38,14 @@
                     <input type="checkbox" id="acepto-terminos" name="acepto-terminos" required>
                     Acepto las políticas de privacidad y términos y condiciones
                 </label>
-                <!-- Botones: Registrarme y Cancelar -->
+                <!-- Botón: Registrarme -->
                 <div id="botones">
-                    <button type="submit"> Registrarme </button>
-                    <button type="button" onclick="cancelarRegistro()"> Cancelar </button>
+                    <button type="submit">Registrarme</button>
                 </div>
             </form>
         </section>
     </main>
     <footer>
     </footer>
-
-    <!-- Script para la función de cancelar -->
-    <script>
-        function cancelarRegistro() {
-            // tengo que implementar la lógica para cancelar el registro si es necesario
-            alert('Registro cancelado');
-        }
-    </script>
 </body>
 </html>
