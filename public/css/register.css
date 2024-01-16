@@ -4,11 +4,11 @@ body {
     margin: 0;
 }
 
-header {
+/*header {
     background-color: #00B9BD;
     padding: 10px;
     text-align: center;
-}
+}diseño pensado quizas lo borre*/ 
 
 main {
     display: flex;
