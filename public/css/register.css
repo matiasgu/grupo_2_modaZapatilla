@@ -1,14 +1,14 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #007e80 ;
-    margin: 0;
-}
+
 
 main {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #007e80 ;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
+    padding: 20px 0;
 }
 
 #registro-formulario {
@@ -48,7 +48,7 @@ input {
     border-radius: 4px;
 }
 
-button {
+.button-registro {
     width: 100%;
     padding: 10px;
     background-color: #00B9BD;
@@ -58,7 +58,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.button-registro:hover {
     background-color: #007278;
 }
 
@@ -68,6 +68,3 @@ button:hover {
     margin-top: 20px;
 }
 
-#botones button {
-    flex: 100%;
-}
