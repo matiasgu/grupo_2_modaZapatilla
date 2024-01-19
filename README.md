@@ -40,5 +40,7 @@ Estos son cinco referentes del mercado que hemos considerado para tomar ideas en
 .color3 { #004853 };
 .color4 { #007e80 };
 .color5 { #00b9bd };
+#279BA1
+#a46424a9
 
 https://paletadecolores.com.ar/paleta/fb6900/f63700/004853/007e80/00b9bd/
