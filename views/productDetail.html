@@ -5,24 +5,81 @@
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moda Zapatillas</title>
-    <link rel="shortcut icon" type="image/x-icon" href="">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../public/css/home.css">
+    <link rel="stylesheet" href="../public/css/product.css">
 </head>
 <body>
+    <!-- Encabezado -->
     <header>
-     
-    </header> 
+        <div class="contenedor-header">
+            <div class="logo">
+                <img src="../public/img/modaFinal1.png">
+            </div>
+            <form action="#" method="GET" class="buscador">
+                <input type="text" name="keywords" placeholder="Buscar productos, marcas y más" class="buscador-input">
+                <button type="submit" class="buscador-boton"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="registro">
+                <a href="/views/register.html">registrar<i class="fa-regular fa-address-card"></i></a>
+                <a href="">ingresar<i class="fa-regular fa-user"></i></a>
+            </div>
+            
+        </div>
+        <div class="nav">
+            <nav>
+                <a href="#" onclick="">HOME</a>
+                <a href="#" onclick="">HOMBRE</a>                
+                <a href="#" onclick="">MUJERE</a>
+                <a href="#" onclick="">OFERTAS</a>                
+            </nav>
+            <div class="hambur">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            
+        </div>
+
+    </header>
     <main>
-        <!--Contenido principal que no se repite en todas las paginas-->
         <section>  <!--Detalle del producto-->
             <article>
+                <div>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+                <img class="img-product" src="/public/img/imgProductDetail/mz_modelo_alpha_orange_men.png" alt="Modelo hombre ALPHA-ORANGE">
+                <header>
+                    <h3 class="product-title">Zapatilla ALPHA ORANGE MEN </h3>
+                </header>
 
+                <div class="description">
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo nam corporis quisquam vel ea laudantium dolor sequi error. Itaque porro consequuntur labore voluptas minima aut nulla corrupti placeat libero id voluptate a nisi quidem dolore dignissimos reprehenderit, eveniet error optio nihil ea nam exercitationem nemo reiciendis sunt? Aperiam, obcaecati atque?</p> -->
+                    <p> <strong>Zapatillas para hombre deportivas ultra resistentes </strong>Lorem ipsum <em> dolor sit amet </em> consectetur
+                        <span>adipisicing elit. </span> Id nostrum eos tenetur impedit eaque ullam vel modi quis
+                        placeat sed?</p>
+
+                    </div>
+
+                    <p class="shipping">Envío gratis</p>
+                    
+                    <p class="price">$80.000</p>
             </article>
         </section>
     </main>
-
+    <!--Pie de pagina-->
     <footer>
+        <div class="info-footer">
+            <p>deccion</p>
+            <p>coopy</p>
 
+        </div>
+        <div class="redes-footer">
+            <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-square-whatsapp"></i></a>   
+        </div>
     </footer>
 </body>
 </html>
