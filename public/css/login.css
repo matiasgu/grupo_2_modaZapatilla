@@ -1,12 +1,13 @@
 main {
     font-family: 'Roboto', sans-serif;
-    margin: 0;
+    margin: auto;
     background-color: #007e80 ;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     padding: 20px 0;
+    width: 100%;
 }
 
 #login-usuario {
@@ -16,8 +17,7 @@ main {
     width: 80%;
     max-width: 400px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: auto; /* Establece el margen izquierdo automáticamente */
-    margin-right: 250px;
+    margin: auto;
 }
 h2 {
     text-align: center;
