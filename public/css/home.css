@@ -284,6 +284,12 @@ footer{
         box-shadow: 0px 0px 10px #279BA1;
         transform: rotateX(360deg);
     }
+    .hombres-mujeres a img:hover{
+        box-shadow: 5px 20px 25px rgba(0, 0, 0, 0.50);
+    }
+    .descuentos-promociones a img:hover{
+        box-shadow: 5px 20px 25px rgba(0, 0, 0, 0.50);
+    }
 
 }
 
