@@ -31,3 +31,11 @@ Asegurar una actualización regular del inventario y contenido del sitio para ma
 
 4- Optimización SEO:
 Mejorar la optimización para motores de búsqueda (SEO) para aumentar la visibilidad del sitio en los resultados de búsqueda.
+
+
+-------------
+SPRINT 3 - Retrospectiva Estrella de Mar 
+
+-Se hizo bien: En un principio se estableció una buena comunicación y se realizaron las reuniones acordadas. Al estar todos más o menos en un mismo nivel nos ayudamos mutuamente en las tareas.
+-Nos faltó: Luego, cuando se establecieron las tareas individuales la comunicación se perdió y no hubo intercambio en el grupo sobre los resultados de las tareas realizadas.
+-Lo que deberíamos empezar a hacer: Establecer un líder y cumplir con reuniones establecidas, realizar una daily standup, al menos una vez por semana. De esta manera, todo el equipo está al tanto de lo que está haciendo cada uno y en el caso de que haya algún impedimento pueden aportar a la solución. Y el líder podrá incentivar a la realización de las tareas de cada parte del grupo.
