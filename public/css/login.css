@@ -64,6 +64,12 @@ input,textarea {
 /*.button-crear-cuenta:hover {
     background-color: #007278;
 }*/
+.button-modificar{
+    background-color: #522c;
+}
+.button-eliminar{
+    background-color: rgb(129, 20, 20);
+}
 
 #botones,#botones2,#botones3,#botones4  {
     display: flex;
