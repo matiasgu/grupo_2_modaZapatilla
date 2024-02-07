@@ -9,8 +9,7 @@ main {
     padding: 20px 0;
     width: 100%;
 }
-
-#login-usuario {
+#cargar-producto {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 20px;
@@ -23,13 +22,7 @@ h2 {
     text-align: center;
     color: #333;
 }
-label {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    color: #555;
-}
-input,textarea {
+input {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
@@ -38,19 +31,7 @@ input,textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-.button-cargar {
-    width: 100%;
-    padding: 15px;
-   background-color: #00B9BD; 
-    color: #fff;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-}
-/*.button-login:hover {
-    background-color: #007278;
-}*/
-.button-buscar, .button-modificar, .button-eliminar {
+.button-crear-cuenta {
     width: 60%;
     padding: 10px;
    background-color: #065c38; 
@@ -61,12 +42,17 @@ input,textarea {
     display: block; /* Asegura que ocupe todo el ancho disponible */
     margin: 0 auto; /* Centra horizontalmente con márgenes automáticos */
 }
-/*.button-crear-cuenta:hover {
+.button-crear-cuenta:hover {
     background-color: #007278;
-}*/
+}
 
-#botones,#botones2,#botones3,#botones4  {
+#botones {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+}
+#botones2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
 }

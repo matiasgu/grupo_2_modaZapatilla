@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('partials/head') %>
+<body>
+    <!-- encabezado -->
+    <%- include('partials/header') %>
+    <main>
+        <section id="cargar-producto">
+            <h2>Carga y edicion de productos</h2>
+            <!-- Formulario de registro -->
+            <form action="/productload" method="post">
+               
+                <!-- Campo: Nombre -->
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Iphone 15 pro" required>
+                <!-- Campo: Descripción -->
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion" placeholder="Ingrese la descripción del producto" required></textarea>
+
+               <!-- Campo: Imagen -->
+        <label for="imagen">Imagen:</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+                 <!-- Campo: Categoría -->
+        <label for="categoria">Categoría:
+        <select id="categoria" name="categoria" required>
+            <option value="electronics">Electrónicos</option>
+            <option value="clothing">Ropa</option>
+            <option value="home">Hogar</option>
+            <!-- Agregar más opciones según las categorías disponibles -->
+        </select></label>
+        <!-- Campo: Colores -->
+        <label for="colores">Colores:</label>
+        <input type="text" id="colores" name="colores" placeholder="Ingrese los colores disponibles" required>
+        <!-- Campo: Talla -->
+        <label for="talla">Colores:</label>
+        <input type="text" id="talla" name="talla" placeholder="Ingrese los talles disponibles" required>
+        <!-- Campo: Precio -->
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio" placeholder="Ingrese el precio del producto" required>
+
+
+
+                <!-- Botón: CArgar,buscar,modificar,eliminar -->
+                <div id="botones">
+                    <button class="button-cargar" type="submit">Cargar </button>
+                   
+                </div>
+
+                
+                <div id="botones2">
+                    <button class="button-buscar" type="submit">Buscar </button>
+                 
+                </div>
+                <div id="botones3">
+                    <button class="button-modificar" type="submit">modificar </button>
+                 
+                </div>
+                <div id="botones4">
+                    <button class="button-eliminar" type="submit">Eliminar </button>
+                 
+                </div>
+            </form>
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+    <!-- pie de pagina -->
+    <%- include('partials/footer') %>
+</body>
+</html>

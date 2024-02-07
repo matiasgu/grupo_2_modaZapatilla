@@ -30,8 +30,11 @@ app.get('/productDetail', (req, res) => {
   app.get('/productCart', (req, res) => {
       res.render("productCart");
   });
-
-
+// producto load
+app.get('/productLoad', (req, res) => {
+  res.render("productLoad");
+});
+  
 
 app.use(express.static('./public'));
 
