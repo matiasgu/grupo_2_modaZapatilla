@@ -3,7 +3,7 @@
 main {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    background-color: #007e80 ;
+    background-color: 007e80 ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,8 +12,8 @@ main {
 }
 
 #registro-formulario {
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: gray;
+    border: 1px solid green;
     padding: 20px;
     width: 80%;
     max-width: 400px;
