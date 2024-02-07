@@ -15,6 +15,10 @@ app.get('/', (req, res) =>{
 app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/register.html'));
 });
+/* login */
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/login.html'));
+});
 
 /*Product Detail*/ 
 app.get('/productDetail', (req, res) => {
