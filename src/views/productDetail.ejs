@@ -4,106 +4,34 @@
 <body>
     <!-- Encabezado -->
     <%- include('partials/header') %>
-    <main>
-        <section>  <!--Detalle del producto-->
-            <article>
-                <div>
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-                <img class="img-product" src="/img/imgProductDetail/mz_modelo_alpha_orange_men.png" alt="Modelo hombre ALPHA-ORANGE">
-                <header>
-                    <h3 class="product-title">Zapatilla ALPHA ORANGE MEN </h3>
-                </header>
 
-                <div class="description">
-                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo nam corporis quisquam vel ea laudantium dolor sequi error. Itaque porro consequuntur labore voluptas minima aut nulla corrupti placeat libero id voluptate a nisi quidem dolore dignissimos reprehenderit, eveniet error optio nihil ea nam exercitationem nemo reiciendis sunt? Aperiam, obcaecati atque?</p> -->
-                    <p> <strong>Zapatillas para hombre deportivas ultra resistentes </strong>Compra por aquí <em> Obtené este producto ya </em> Hace click
-                        <span>Las mejores Zapatillas</span> No importa por donde estes, el modelo ALPHA siempre te hará sentir comodo. A esto sumale que su color nunca pasara desapercibido.
-                        Animate a la experiencia ALPHA ORANGE
-                    </p>
+	<!-- todos los productos -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Todos los productos</h2>
+			</div>
+		
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/products/detail/¿?">
+						<figure class="product-box_image">
+							<img src="/img/imgProductDetail/mz_modelo_alpha_orange_men.png" alt="Modelo hombre ALPHA-ORANGE">
+						</figure>
+						<article class="product-box_data">
+							<h2>$FINAL PRICE/h2>
+							<span>DISCOUNT% OFF</span>
+							<p>PRODUCT NAMe</p>
+							<i class="fas fa-truck"></i>
+						</article>
+					</a>
+				</section>
+			</div>
+		
+		</div>
+	</div>
+	<!-- /todos los productos -->
 
-                </div>
-
-                    <p class="shipping">Envío gratis</p>
-                    
-                    <p class="price">$80.000</p>
-            </article>
-        </section>
-        <section>
-            <header class="similar-products">
-                <h2>Productos similares</h2>
-            </header>
-                <article>
-                    <div>
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                    <img class="img-product" src="/img/imgProductDetail/mz_modelo_nature_unisex.png" alt="Nature UNISEX">
-                    <header>
-                        <h3 class="product-title">Modelo NATURE Unisex </h3>
-                    </header>
-
-                    <div class="description">
-                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo nam corporis quisquam vel ea laudantium dolor sequi error. Itaque porro consequuntur labore voluptas minima aut nulla corrupti placeat libero id voluptate a nisi quidem dolore dignissimos reprehenderit, eveniet error optio nihil ea nam exercitationem nemo reiciendis sunt? Aperiam, obcaecati atque?</p> -->
-                        <p> <strong>Descripcion del producto </strong>Conseguilo aqui <em> Compra inmediata</em> Moda Zapatillas
-                            <span> Tus Zapatillas Ya</span> Las zapatilla que necesitas al instante hace click</p>
-
-                        </div>
-
-                        <p class="shipping">Envío gratis</p>
-                        
-                        <p class="price">$67.000</p>
-
-
-                </article>
-                <article>
-                    <div>
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                    <img class="img-product" src="/img/imgProductDetail/mz_modelo_zoom_unisex.png" alt="Modelo Zoom Unisex">
-                    <header>
-                        <h3 class="product-title">Modelo Zoom Unisex </h3>
-                    </header>
-
-                    <div class="description">
-                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo nam corporis quisquam vel ea laudantium dolor sequi error. Itaque porro consequuntur labore voluptas minima aut nulla corrupti placeat libero id voluptate a nisi quidem dolore dignissimos reprehenderit, eveniet error optio nihil ea nam exercitationem nemo reiciendis sunt? Aperiam, obcaecati atque?</p> -->
-                        <p> <strong>Descripcion del producto </strong>Conseguilo aqui <em> Compra inmediata</em> Moda Zapatillas
-                            <span> Tus Zapatillas Ya</span> Las zapatilla que necesitas al instante hace click</p>
-
-                        </div>
-
-                        <p class="shipping">Envío gratis</p>
-                        
-                        <p class="price">$75.000</p>
-
-
-                </article>
-
-                <article>
-                    <div class="heart">
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                    <img class="img-product" src="/img/imgProductDetail/mz_modelo_run_men_black.png" alt="Run Men">
-                    <header>
-                        <h3 class="product-title">Modelo RUN Men</h3>
-                    </header>
-
-                    <div class="description">
-                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo nam corporis quisquam vel ea laudantium dolor sequi error. Itaque porro consequuntur labore voluptas minima aut nulla corrupti placeat libero id voluptate a nisi quidem dolore dignissimos reprehenderit, eveniet error optio nihil ea nam exercitationem nemo reiciendis sunt? Aperiam, obcaecati atque?</p> -->
-                        <p> <strong>Nombre del producto </strong>Producto <em> Consegui tus zapatillas</em>Compra Aquí
-                            <span>Adquiri este producto por aqui</span> Stock ilimitado para envío inmediato</p>
-
-                        </div>
-
-                        <p class="shipping">Envío gratis</p>
-                        
-                        <p class="price">$45.000</p>
-
-
-                </article>
-
-            </div>
-        </section>
-    </main>
     <!--Pie de pagina-->
     <%- include('partials/footer') %>
 </body>

@@ -7,37 +7,19 @@
     <!-- parte de los preductos -->
     <main>
         <div class="contenedor-main">
+            <!--TODOS LOS PRODUCTOS-->
             <div class="contenedor-productos">
-                <div class="productos">
-                    <img class="producto-imagen" src="/img/imgProductDetail/mz_modelo_alpha_orange_men.png" alt="">
+            <% for (let i=0; i<todosLosProductos.length; i++){ %>
+                <div class="producto">
+                    <img class="producto-imagen" src="../img/imgProductDetail/<%= todosLosProductos[i].img %>.png" alt="">
                     <div class="producto-descripcion">                        
-                        <p class="titulo">zapatilla</p>
-                        <p class="precios">$<i class="fa-solid fa-cart-plus"></i></p>                       
+                        <p class="titulo"><%= todosLosProductos[i].name %></p>
+                        <p class="precios"><%= todosLosProductos[i].price %><i class="fa-solid fa-cart-plus"></i></p>                       
                     </div>
                 </div>
-                <div class="productos">
-                    <img class="producto-imagen" src="/img/imgProductDetail/mz_modelo_urban_kids.png" alt="">
-                    <div class="producto-descripcion">                        
-                        <p class="titulo">zapatilla</p>
-                        <p class="precios">$<i class="fa-solid fa-cart-plus"></i></p>                       
-                    </div>
-                </div>
-                <div class="productos">
-                    <img class="producto-imagen" src="/img/imgProductDetail/mz_modelo_invisible_white_woman.png" alt="">
-                    <div class="producto-descripcion">                        
-                        <p class="titulo">zapatilla</p>
-                        <p class="precios">$<i class="fa-solid fa-cart-plus"></i></p>                       
-                    </div>
-                </div>
-                <div class="productos">
-                    <img class="producto-imagen" src="/img/imgProductDetail/mz_modelo_nb_kids.png" alt="">
-                    <div class="producto-descripcion">                        
-                        <p class="titulo">zapatilla</p>
-                        <p class="precios">$<i class="fa-solid fa-cart-plus"></i></p>                       
-                    </div>
-                </div>
-
+            <% } %>
             </div>
+            <!--FIN TODOS LOS PRODUCTOS-->
             <div class="hombres-mujeres">
                 <a href="">
                     <img src="/img/imgProductDetail/hombres1.jpg" alt="">    
