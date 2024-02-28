@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-
+const methodOverride = require('method-override');
 
 //EJS
 app.set("view engine", "ejs");
@@ -16,6 +16,9 @@ const homeRouter = require('./routes/homeRoutes'); // Rutas main
 app.use('/', homeRouter);
 //app.use('/products', productsRouter);
 
+
+//******PUT Y DELETE**********/
+app.use(methodOverride('_method'));
 
 
 
