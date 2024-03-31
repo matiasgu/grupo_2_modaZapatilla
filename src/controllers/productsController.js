@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+const productsFilePath = path.join(__dirname, '../models/productsDatav.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -31,7 +31,7 @@ const controller = {
         };
 
         // JS
-        products.push(newUser);
+        products.push(newProduct);
 
         // JSON
         fs.writeFileSync( pathFile, JSON.stringify(products, null, 2 ) ) // JS a JSON
@@ -46,7 +46,7 @@ const controller = {
 
         const productFound = products.find( ( product ) => product.id === idFound );
 
-		res.render('product-edit-form'); //hacer el ejs
+		res.render('productLoad'); 
 	},
 	// Update - Method to update
 	update: (req, res) => {
