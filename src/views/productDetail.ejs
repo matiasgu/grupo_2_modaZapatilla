@@ -11,23 +11,23 @@
 			<div class="col-12">
 				<h2 class="products-title">Todos los productos</h2>
 			</div>
-		
+			<%productos.forEach (producto) => {%>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/products/detail/¿?">
+					<a href="/products/detail/<%producto.name%>">
 						<figure class="product-box_image">
-							<img src="/img/imgProductDetail/mz_modelo_alpha_orange_men.png" alt="Modelo hombre ALPHA-ORANGE">
+							<img src="/img/imgProductDetail/<%producto.img%>" alt="Modelo + <%producto.name%>">
 						</figure>
 						<article class="product-box_data">
-							<h2>$FINAL PRICE/h2>
+							<h2>$FINAL PRICE <%producto.price%> <h2>
 							<span>DISCOUNT% OFF</span>
-							<p>PRODUCT NAMe</p>
+							<p><%producto.brand%></p>
 							<i class="fas fa-truck"></i>
 						</article>
 					</a>
 				</section>
 			</div>
-		
+			<%}%>
 		</div>
 	</div>
 	<!-- /todos los productos -->
