@@ -38,7 +38,7 @@ app.listen(3000, () => console.log('Server running at http://localhost:3000'));
 
 // ************ DON'T TOUCH FROM HERE ************
 // ************ catch 404 and forward to error handler ************
-app.use((req, res, next) => next(createError(404)));
+/*app.use((req, res, next) => next(createError(404)));
 
 // ************ error handler ************
 app.use((err, req, res, next) => {
@@ -50,7 +50,7 @@ app.use((err, req, res, next) => {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
+});*/
 
 // ************ exports app - dont'touch ************
 module.exports = app;
