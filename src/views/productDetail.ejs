@@ -4,26 +4,28 @@
 <body>
     <!-- Encabezado -->
     <%- include('partials/header') %>
-
 	<!-- todos los productos -->
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Todos los productos</h2>
+				<h2 class="products-title"><%= producto.name%> </h2>
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/products/<%producto.id%>">
-						<figure class="product-box_image">
-							<img src="/img/imgProductDetail/<%producto.img%>" alt="Modelo <%producto.name%>">
-						</figure>
-						<article class="product-box_data">
-							<h2>$FINAL PRICE <%producto.price%> <h2>
-							<span>DISCOUNT% OFF</span>
-							<p><%producto.brand%></p>
-							<i class="fas fa-truck"></i>
-						</article>
-					</a>
+					<figure class="product-box_image">
+						<img src="/img/imgProductDetail/<%=producto.img%>.png" alt="Modelo <%= producto.name%>">
+					</figure>
+					<article class="product-box_data">
+						<h2>PRECIO FINAL ARG$ <%= producto.price%> <h2>
+						<span>Marca <%= producto.brand%></span>
+						<span>Oferta 5% OFF</span>
+						<i class="fas fa-truck"></i>
+					</article>
+					<p>
+							<p> <button class="botonEditar" type="submit">EDITAR</button>
+							<p> <button class="botonBorrar" type="submit">BORRAR</button>							
+							<a  class="botonVolver" href="/">ATRAS</a></p>
+					</p>
 				</section>
 			</div>
 		</div>

@@ -15,9 +15,10 @@ const controller = {
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		const productId = req.params.id;
-		consolog.log(req.params.id)
 		const productFound = products.findIndex( (product) => product.id === productId );
-		res.render('productDetail',{producto : productFound});
+		console.log(productFound);
+		console.log(products[productFound]);
+		res.render('productDetail', {producto : products[productFound]});
 	},
 
 	// Create - Form to create

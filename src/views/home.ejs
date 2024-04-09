@@ -11,7 +11,7 @@
             <div class="contenedor-productos">
             <% for (let i=0; i<todosLosProductos.length; i++){ %>
                 <div class="producto">
-                    <a href="/products/<%todosLosProductos[i].id%>">
+                    <a href="/products/<%= todosLosProductos[i].id %>">
                         <img class="producto-imagen" src="../img/imgProductDetail/<%= todosLosProductos[i].img %>.png" alt="">
                     </a>
                     <div class="producto-descripcion">                        
