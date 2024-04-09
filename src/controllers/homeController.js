@@ -15,19 +15,19 @@ const controller = {
 	},
 	productsMen: (req, res) => {
 		const prodMen = products.filter((prod) => (prod.category === 'men' )||(prod.category === 'unisex'))
-		res.render('productDetail', {
+		res.render('', {
 			productosHombres: prodMen
 		});
 	},
 	productsWoman: (req, res) => {
 		const prodWoman = products.filter((prod) => (prod.category === 'woman')||(prod.category === 'unisex'))
-		res.render('productDetail', {
+		res.render('', {
 			productosMujeres: prodWoman
 		});
 	},
 	productsKids: (req, res) =>{
 		const prodKids = products.filter((prod) => prod.category === 'kids')
-		res.render('productDetail', {
+		res.render('', {
 			productosNinos: prodKids
 		});
 	}

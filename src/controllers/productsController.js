@@ -49,8 +49,8 @@ const controller = {
         const idFound = req.params.id;
 
         const productFound = products.find( ( product ) => product.id === idFound );
-
-		res.render('productLoad'); 
+		console.log("estoy en el edit");
+		res.render('productLoad', {producto: products[productFound]}); 
 	},
 	// Update - Method to update
 	update: (req, res) => {

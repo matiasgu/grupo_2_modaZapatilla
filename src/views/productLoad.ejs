@@ -9,24 +9,23 @@
         <section id="cargar-producto">
             <h2>Carga y edicion de productos</h2>
             <!-- Formulario de registro -->
-            <form action="/productload" method="post">
+            <form action="/edit/<%= producto.id%>?_method=PUT" method="POST" class="form-data">
                
                 <!-- Campo: Nombre -->
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ej: Iphone 15 pro" required>
-                <!-- Campo: Descripción -->
-        <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" placeholder="Ingrese la descripción del producto" required></textarea>
-
-               <!-- Campo: Imagen -->
-        <label for="imagen">Imagen:</label>
-        <input type="file" id="imagen" name="imagen" accept="image/*" required>
-                 <!-- Campo: Categoría -->
-        <label for="categoria">Categoría:
-        <select id="categoria" name="categoria" required>
-            <option value="electronics">Electrónicos</option>
-            <option value="clothing">Ropa</option>
-            <option value="home">Hogar</option>
+                <label for="nombre">Nombre: </label>
+                <input type="text" id="nombre" name="nombre" value="<%= producto.name %>" required>
+               <!-- Campo: Img-->
+               <label for="imagen">Imagen: </label>
+               <input type="file" id="imagen" name="imagen" accept="image/imgProductDetail/*" required>
+                <!-- Campo: Brand -->
+                <label for="brand">Marca: </label>
+                <input type="text" id="brand" name="brand" value="<%= producto.brand %>" required>
+                <!-- Campo: category -->
+                <label for="nombre">Categoría: </label>
+                <input type="text" id="category" name="category" value="<%= producto.category%>" required>
+                <!-- Campo: price-->
+                <label for="nombre">Precio: </label>
+                <input type="text" id="price" name="price" value="<%= producto.price %>" required>
             <!-- Agregar más opciones según las categorías disponibles -->
         </select></label>
         <!-- Campo: Colores -->
