@@ -23,12 +23,14 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		res.render('product-create-form');
+		console.log("estoy en el create");
+		res.render('productCreate');
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
 		// Do the magic
+		console.log("estoy en post create");
         const newProduct = {
             id: crypto.randomUUID(),
             ...req.body
