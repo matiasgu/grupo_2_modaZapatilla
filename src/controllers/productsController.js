@@ -82,7 +82,13 @@ const controller = {
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		// Do the magic
+        const idFound = req.params.id;
+        
+        const productos = products.filter( ( user ) => user.id !== idFound ); //realiza un nuevo array sin el elemento a eliminar
 
+        fs.writeFileSync(productsFilePath, JSON.stringify(productos, null, 2))
+
+        res.redirect('/')
 	}
 };
 

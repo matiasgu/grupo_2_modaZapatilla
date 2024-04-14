@@ -14,8 +14,11 @@
                 <label for="nombre">Nombre: </label>
                 <input type="text" id="name" name="name" value="<%= producto.name %>" required>
                <!-- Campo: Img-->
+               <figure class="product-box_image">
+                    <img src="/img/imgProductDetail/<%=producto.img%>.png" alt="Modelo <%= producto.name%>">
+                </figure>
                <label for="imagen">Imagen: </label>
-               <input type="file" id="img" name="img" accept="image/imgProductDetail/<%= producto.img %>" required>
+               <input type="file" id="img" name="img" accept="image/imgProductDetail/<%= producto.img %>">
                 <!-- Campo: Brand -->
                 <label for="brand">Marca: </label>
                 <input type="text" id="brand" name="brand" value="<%= producto.brand %>" required>
@@ -26,9 +29,12 @@
                 <label for="nombre">Precio: </label>
                 <input type="text" id="price" name="price" value="<%= producto.price %>" required>
             <!-- Agregar más opciones según las categorías disponibles -->
-                <!-- Botón: CArgar,buscar,modificar,eliminar -->
-            <button type="submit">MODIFICAR</button>
-            </button>
+                <!-- Botón: modificar,eliminar -->
+                <button type="submit">MODIFICAR</button>
+                </button>
+            </form>
+            <form method="POST" action="/products/<%= producto.id %>?_method=DELETE" >
+                <button type="submit" class="redirect">ELIMINAR</button>
             </form>
         </section>
     </main>

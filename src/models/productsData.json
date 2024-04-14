@@ -26,10 +26,10 @@
   {
     "id": "4",
     "name": "Zapatillas Modelo NB Kids",
-    "img": "mz_modelo_nb_kids",
+    "img": "",
     "brand": "NB",
     "category": "kids",
-    "price": 45654
+    "price": 70000
   },
   {
     "id": "5",
@@ -54,24 +54,5 @@
     "brand": "moda Zapa",
     "category": "men",
     "price": 94894
-  },
-  {},
-  {},
-  {},
-  {
-    "id": 11,
-    "name": "Zapatilla Colegial",
-    "img": "mz_modelo_colegio_kids.png",
-    "brand": "mz",
-    "category": "kids",
-    "price": "45000"
-  },
-  {
-    "id": 12,
-    "name": "Zapatila Colegial",
-    "img": "mz_modelo_colegio_kids.png",
-    "brand": "mz",
-    "category": "kids",
-    "price": "45000"
   }
 ]
