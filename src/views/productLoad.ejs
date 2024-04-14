@@ -9,14 +9,13 @@
         <section id="cargar-producto">
             <h2>Carga y edicion de productos</h2>
             <!-- Formulario de registro -->
-            <form action="/edit/<%= producto.id%>?_method=PUT" method="POST" class="form-data">
-               
+            <form method="POST" action="/products/<%= producto.id%>?_method=PUT">
                 <!-- Campo: Nombre -->
                 <label for="nombre">Nombre: </label>
-                <input type="text" id="nombre" name="nombre" value="<%= producto.name %>" required>
+                <input type="text" id="name" name="name" value="<%= producto.name %>" required>
                <!-- Campo: Img-->
                <label for="imagen">Imagen: </label>
-               <input type="file" id="imagen" name="imagen" accept="image/imgProductDetail/*" required>
+               <input type="file" id="img" name="img" accept="image/imgProductDetail/<%= producto.img %>" required>
                 <!-- Campo: Brand -->
                 <label for="brand">Marca: </label>
                 <input type="text" id="brand" name="brand" value="<%= producto.brand %>" required>
@@ -27,38 +26,9 @@
                 <label for="nombre">Precio: </label>
                 <input type="text" id="price" name="price" value="<%= producto.price %>" required>
             <!-- Agregar más opciones según las categorías disponibles -->
-        </select></label>
-        <!-- Campo: Colores -->
-        <label for="colores">Colores:</label>
-        <input type="text" id="colores" name="colores" placeholder="Ingrese los colores disponibles" required>
-        <!-- Campo: Talla -->
-        <label for="talla">Colores:</label>
-        <input type="text" id="talla" name="talla" placeholder="Ingrese los talles disponibles" required>
-        <!-- Campo: Precio -->
-        <label for="precio">Precio:</label>
-        <input type="number" id="precio" name="precio" placeholder="Ingrese el precio del producto" required>
-
-
-
                 <!-- Botón: CArgar,buscar,modificar,eliminar -->
-                <div id="botones">
-                    <button class="button-cargar" type="submit">Cargar </button>
-                   
-                </div>
-
-                
-                <div id="botones2">
-                    <button class="button-buscar" type="submit">Buscar </button>
-                 
-                </div>
-                <div id="botones3">
-                    <button class="button-modificar" type="submit">modificar </button>
-                 
-                </div>
-                <div id="botones4">
-                    <button class="button-eliminar" type="submit">Eliminar </button>
-                 
-                </div>
+            <button type="submit">MODIFICAR</button>
+            </button>
             </form>
         </section>
     </main>

@@ -53,16 +53,15 @@ const controller = {
 	edit: (req, res) => {
 		// Do the magic
         const idFound = req.params.id;
-
         const productFound = products.find( ( product ) => product.id === idFound );
 		console.log("estoy en el edit");
-		res.render('productLoad', {producto: products[productFound]}); 
+		res.render('productLoad', {producto: productFound}); 
 	},
 	// Update - Method to update
 	update: (req, res) => {
 		// Do the magic
         const idFound = req.params.id;
-
+		console.log("estoy en el edit update" + idFound);
         const indexFound = products.findIndex( ( product ) => product.id === idFound );
 
         products[indexFound] = {
@@ -75,7 +74,7 @@ const controller = {
             // price: req.body.price,						
         }
 
-        fs.writeFileSync( pathFile, JSON.stringify(products, null, 2 ) ); // JS a JSON
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2 ) ); // JS a JSON
 
         res.redirect('/');
 	},
