@@ -5,16 +5,15 @@
 <body>
     <!-- encabezado -->
     <%- include('partials/header') %>
-    <form action="/products/store" method="POST" class="form-data" enctype="multipart/form-data">
+    <form action="/products/store" method="POST">
         <div class="label-form">
             <label for="name">Nombre del producto:
             </label>
             <input type="text" id="name" name="name" >
         </div>
         <div class="label-form">
-            <label for="category">Categoría del producto:
-            </label>
-            <input type="text" id="category" name="category" >
+            <label for="avatar">Imagen</label>
+            <input type="file" name="img" id="img">
         </div>
         <div class="label-form">
             <label for="brand">Marca del producto:
@@ -22,14 +21,14 @@
             <input type="text" id="brand" name="brand" >
         </div>
         <div class="label-form">
+            <label for="category">Categoría del producto:
+            </label>
+            <input type="text" id="category" name="category" >
+        </div>
+        <div class="label-form">
             <label for="price">Precio del producto:
             </label>
             <input type="text" id="price" name="price" >
-        </div>
-
-        <div class="label-form">
-            <label for="avatar">Imagen</label>
-            <input type="file" name="img" id="img">
         </div>
         <button type="submit">Crear nuevo producto</button>
         </button>

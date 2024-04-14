@@ -54,5 +54,24 @@
     "brand": "moda Zapa",
     "category": "men",
     "price": 94894
+  },
+  {},
+  {},
+  {},
+  {
+    "id": 11,
+    "name": "Zapatilla Colegial",
+    "img": "mz_modelo_colegio_kids.png",
+    "brand": "mz",
+    "category": "kids",
+    "price": "45000"
+  },
+  {
+    "id": 12,
+    "name": "Zapatila Colegial",
+    "img": "mz_modelo_colegio_kids.png",
+    "brand": "mz",
+    "category": "kids",
+    "price": "45000"
   }
 ]

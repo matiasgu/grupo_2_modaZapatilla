@@ -30,9 +30,9 @@ const controller = {
 	// Create -  Method to store
 	store: (req, res) => {
 		// Do the magic
-		console.log("estoy en post create" + req.body);
+		console.log(req.body);
         const newProduct = {
-            id: "products.length+1",
+            id: products.length + 1,
 			name: req.body.name,
 			img: req.body.img,
 			brand: req.body.brand,
