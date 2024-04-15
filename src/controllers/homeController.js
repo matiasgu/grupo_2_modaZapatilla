@@ -10,25 +10,28 @@ const controller = {
 		// Do the magic
 			const allProducts = products;
 			res.render('home',{
-				todosLosProductos: allProducts
+				productos: allProducts
 			})
 	},
 	productsMen: (req, res) => {
+		console.log("estoy en zapatillas de hombres");
 		const prodMen = products.filter((prod) => (prod.category === 'men' )||(prod.category === 'unisex'))
-		res.render('', {
-			productosHombres: prodMen
+		res.render('home', {
+			productos: prodMen
 		});
 	},
 	productsWoman: (req, res) => {
+		console.log("estoy en zapatillas de mujeres");
 		const prodWoman = products.filter((prod) => (prod.category === 'woman')||(prod.category === 'unisex'))
-		res.render('', {
-			productosMujeres: prodWoman
+		res.render('home', {
+			productos: prodWoman
 		});
 	},
 	productsKids: (req, res) =>{
+		console.log("estoy en zapatillas de niños");
 		const prodKids = products.filter((prod) => prod.category === 'kids')
-		res.render('', {
-			productosNinos: prodKids
+		res.render('home', {
+			productos: prodKids
 		});
 	}
 
