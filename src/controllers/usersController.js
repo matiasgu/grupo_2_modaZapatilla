@@ -2,18 +2,18 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const usersFilePath = path.join(__dirname, '../data/usersData.json');
+const usersFilePath = path.join(__dirname, '../models/usersData.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const controller = {
     // Root - Show all users
-    index: (req, res) => {
-        res.render('users'); // Cambia 'users' por el nombre de tu vista de usuarios
+    login: (req, res) => {
+        res.render('login'); // Cambia 'users' por el nombre de tu vista de usuarios
     },
 
     // Create - Form to create
-    create: (req, res) => {
-        res.render('user-create-form'); // Cambia 'user-create-form' por el nombre de tu vista de creación de usuarios
+    register: (req, res) => {
+        res.render('register'); // Cambia 'user-create-form' por el nombre de tu vista de creación de usuarios
     },
 
     // Store - Method to store
