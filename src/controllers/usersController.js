@@ -15,9 +15,26 @@ const controller = {
     register: (req, res) => {
         res.render('register'); // Cambia 'user-create-form' por el nombre de tu vista de creación de usuarios
     },
+    // registro por post
+    processRegister: (req, res) => {
+        //una forma mas rapido de hacer el newUser es
+        /*let newProduct = req.body // con esto toda la info del body pasa a la variable
+        newProduct.id = crypto.randomUUID() // de esta manera agregapor por parte lo q nos falta
+        newProduct.avatar= req.file?.filename || "default.png", // como el id y avatar*/
+        const newUser = {
+            id: crypto.randomUUID(),
+            avatar:req.file?.filename || "default.png",  
+            ...req.body
+        };
+          // los nombres de los input q sean iguales a la de la base de datos
+        users.push(newUser);
 
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
+
+        res.redirect('/');
+        },
     // Store - Method to store
-    store: (req, res) => {
+   /* store: (req, res) => {
         // Do the magic
         const newUser = {
             id: crypto.randomUUID(),
@@ -29,7 +46,7 @@ const controller = {
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
 
         res.redirect('/');
-    },
+    },*/
 
     // Update - Form to edit
     edit: (req, res) => {
