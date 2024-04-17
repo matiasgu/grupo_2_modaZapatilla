@@ -1,45 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include('partials/head') %>
-<body>
-    <!-- encabezado -->
-    <%- include('partials/header') %>
-    <main>
-        <section id="registro-formulario">
-            <h2>Registro de Usuario</h2>
-            <!-- Formulario de registro -->
-            <form action="/registro" method="post">
-                <!-- Campo: Nombre -->
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Jose" required>
-                <!-- Campo: Apellido -->
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Ej: Perez" required>
-                <!-- Campo: Correo -->
-                <label for="correo">Correo:</label>
-                <input type="email" id="correo" name="correo" placeholder="Ej: juanperez@gmail.com" required>
-                <!-- Campo: Celular o Teléfono (opcional) -->
-                <label for="celular">Celular o Teléfono (opcional):</label>
-                <input type="tel" id="celular" name="celular" placeholder="Ej: 1545000000">
-                <!-- Campo: Contraseña -->
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña" required>
-                <!-- Campo: Confirmar Contraseña -->
-                <label for="confirmar-contrasena">Confirmar Contraseña:</label>
-                <input type="password" id="confirmar-contrasena" name="confirmar-contrasena" placeholder="Confirme su contraseña" required>
-                <!-- Checkbox: Aceptar términos y condiciones -->
-                <label>
-                    <input type="checkbox" id="acepto-terminos" name="acepto-terminos" required>
-                    Acepto las políticas de privacidad y términos y condiciones
-                </label>
-                <!-- Botón: Registrarme -->
-                <div id="botones">
-                    <button class="button-registro" type="submit">Registrarme</button>
-                </div>
-            </form>
-        </section>
-    </main>
-    <!-- pie de pagina -->
-    <%- include('partials/footer') %>
-</body>
+<%- include('partials/head') %>
+
+    <body>
+        <!-- encabezado -->
+        <%- include('partials/header') %>
+            <main>
+                <section id="registro-formulario">
+                    <h2>Registro de Usuario</h2>
+                    <!-- Formulario de registro -->
+                    <form action="/registro" method="post">
+                        <!-- Campo: Nombre -->
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Jose" required>
+                        <!-- Campo: Apellido -->
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Ej: Perez" required>
+                        <!-- Campo: Usuario -->
+                        <label for="usuario">Nombre de usuari@:</label>
+                        <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" required>
+                        <!-- Campo: Contraseña -->
+                        <label for="contrasena">Contraseña:</label>
+                        <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña"
+                            required>
+                        <!-- Campo: Confirmar Contraseña -->
+                        <label for="confirmar-contrasena">Confirmar Contraseña:</label>
+                        <input type="password" id="confirmar-contrasena" name="confirmar-contrasena"
+                            placeholder="Confirme su contraseña" required>
+                        <!-- Campo: Correo -->
+                        <label for="correo">Correo:</label>
+                        <input type="email" id="correo" name="correo" placeholder="Ej: juanperez@gmail.com" required>
+                        <!-- Campo: avatar -->
+                        <div>
+                            <label for="foto">Foto de usuario:</label>
+                        </div>
+                        <div>
+                            <input type="file" id="foto" name="foto" accept="image/*">
+                        </div>
+                        <!-- Campo: pais de nacimiento -->
+                        <label>País de nacimiento:</label>
+								<select 
+									name="country" 
+									class="form-select <%= locals.errors && errors.country ? 'is-invalid' : null %>"
+								>
+									<option value="">Elegí un país</option>
+									<%  
+										let countries = ['Argentina', 'Bolivia', 'Brasil', 'Colombia', 'Chile', 'Ecuador', 'Paraguay', 'Perú', 'Uruguay', 'Venezuela'];
+									%>
+									<% for (const oneCountry of countries) { %>
+										<option 
+											value="<%= oneCountry %>"
+											<%= locals.oldData && (oneCountry === oldData.country) ? 'selected' : null %> 
+										> <%= oneCountry %> </option>
+									<% } %>
+								</select>
+                                <% if (locals.errors && errors.country) { %>
+									<div class="text-danger">
+										<%= errors.country.msg %>
+									</div>
+								<% } %>
+                        <!-- Campo: Celular o Teléfono (opcional) -->
+                        <label for="celular">Celular o Teléfono (opcional):</label>
+                        <input type="tel" id="celular" name="celular" placeholder="Ej: 1545000000">
+
+                        <!-- Checkbox: Aceptar términos y condiciones -->
+                        <label>
+                            <input type="checkbox" id="acepto-terminos" name="acepto-terminos" required>
+                            Acepto las políticas de privacidad y términos y condiciones
+                        </label>
+                        <!-- Botón: Registrarme -->
+                        <div id="botones">
+                            <button class="button-registro" type="submit">Registrarme</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+            <!-- pie de pagina -->
+            <%- include('partials/footer') %>
+    </body>
+
 </html>
