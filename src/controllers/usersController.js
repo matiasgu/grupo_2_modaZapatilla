@@ -86,6 +86,7 @@ const controller = {
 
         res.redirect('/');
     }
+    
 };
 
 module.exports = controller;

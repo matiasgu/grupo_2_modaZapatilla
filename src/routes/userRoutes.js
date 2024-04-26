@@ -30,4 +30,7 @@ router.post('/register',upload.single('avatar'), usersController.processRegister
 // Formulario de login
 router.get('/login', usersController.login);
 
+//
+//router.post('/login', usersController.processLogin);
+
 module.exports = router;

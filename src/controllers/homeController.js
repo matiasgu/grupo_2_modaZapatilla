@@ -33,7 +33,16 @@ const controller = {
 		res.render('home', {
 			productos: prodKids
 		});
-	}
+	},
+
+    controlSession: (req, res) => {
+        if(req.session.numeroVisitas == undefined){
+            req.session.numeroVisitas = 0;
+        }
+        req.session.numeroVisitas ++;
+        res.send('VISITA NRO: ' + req.session.numeroVisitas);
+
+    }
 
 };
 
