@@ -23,14 +23,14 @@ const usersController = require('../controllers/usersController');
 
 //router.get('/', usersController.index);
 // Formulario de registro
-router.get('/register', usersController.register);
+router.get('/register/', usersController.register);
 // Procesar el registro
-router.post('/register',upload.single('avatar'), usersController.processRegister);
+router.post('/register/',upload.single('avatar'), usersController.processRegister);
 
 // Formulario de login
-router.get('/login', usersController.login);
+router.get('/login/', usersController.login);
 
-//
-//router.post('/login', usersController.processLogin);
+//Usuario Logueado
+router.post('/login/', usersController.processLogin);
 
 module.exports = router;

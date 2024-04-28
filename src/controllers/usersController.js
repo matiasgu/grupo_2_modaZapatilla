@@ -17,6 +17,7 @@ const controller = {
     },
     // registro por post
     processRegister: (req, res) => {
+
         //una forma mas rapido de hacer el newUser es
         /*let newProduct = req.body // con esto toda la info del body pasa a la variable
         newProduct.id = crypto.randomUUID() // de esta manera agregapor por parte lo q nos falta
@@ -85,6 +86,11 @@ const controller = {
         fs.writeFileSync(usersFilePath, JSON.stringify(updatedUsers, null, 2));
 
         res.redirect('/');
+    },
+
+    processLogin: (req, res) => {
+        console.log('me logue');
+        res.render('USUARIO LOGUEADO: ' + req.body.correo);
     }
     
 };
