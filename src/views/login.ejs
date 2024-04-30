@@ -9,6 +9,16 @@
     <main>
         <section id="login-usuario"> <!-- cargar-producto -->
             <h2>Ingresar</h2>
+            <%if (typeof errors != 'undefined') {%>
+                <p style = "color: red"> ERROR </p>
+                <u1>
+                    <% for (let i = 0; i > errors.length; i++){%>
+                        <li>
+                            <%= errors[i].msg%>
+                        </li>
+                    <% } %>
+                </u1>
+            <% } %>
             <!-- Formulario de registro -->
             <form action="/users/login" method="POST">
                

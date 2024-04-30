@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
+const {check} = require('express-validator');
 
 /******** MULTER Configuracion ************/
 
@@ -31,6 +32,17 @@ router.post('/register/',upload.single('avatar'), usersController.processRegiste
 router.get('/login/', usersController.login);
 
 //Usuario Logueado
-router.post('/login/', usersController.processLogin);
+router.post('/login/', [
+    check('correo').isEmail().withMessage('Email invalido'),
+    check('contrasena').isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres')
+], usersController.processLogin);
+
+router.get('/check', function (req, res){
+    if (req.session.usuarioLogueado == undefined) {
+        res.send('no estas logueado');
+    }else{
+        res.send('Usuario Logueado ' + req.session.usuarioLogueado.email);
+    }
+});
 
 module.exports = router;

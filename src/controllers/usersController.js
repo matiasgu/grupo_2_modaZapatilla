@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const {validationResult} = require('express-validator');
+const bcrypt = require('bcrypt');
 
 const usersFilePath = path.join(__dirname, '../models/usersData.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -15,6 +17,7 @@ const controller = {
     register: (req, res) => {
         res.render('register'); // Cambia 'user-create-form' por el nombre de tu vista de creación de usuarios
     },
+
     // registro por post
     processRegister: (req, res) => {
 
@@ -89,7 +92,37 @@ const controller = {
     },
 
     processLogin: (req, res) => {
-        console.log('me logue');
+        let errors = validationResult(req);
+        if (errors.isEmpty){
+            const userJson = fs.readFileSync('users.json', {errors: errors.errors});
+            let users;
+            if(userJson == ""){
+                users = [];
+            }else {
+                users = JSON.parse(userJson);
+            }
+            for(let i=0; i < users.length; i++){
+                if (users[i].email == req.body.correo){
+                    if(bcrypt.compareSync(req.body.contrasena, users[i].password)){
+                        const usuarioALoguearse = users[i];
+                        break;
+                    }
+                }
+            }
+            if (usuarioALoguearse == undefined){
+                return res.render('login',{errors: [
+                    {msg: 'Credenciales invalidas'}
+                ]});
+            }
+
+            req.session.usuarioALoguearse = usuarioALoguearse;
+            
+            //redireccionar  a la home pero ya logueado
+            res.render('/');
+            
+        }else{
+            return res.render('login',{errors: errors.errors});
+        }
         res.render('USUARIO LOGUEADO: ' + req.body.correo);
     }
     
