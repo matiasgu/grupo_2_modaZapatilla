@@ -94,17 +94,11 @@ const controller = {
     processLogin: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty){
-            const userJson = fs.readFileSync('users.json', {errors: errors.errors});
-            let users;
-            if(userJson == ""){
-                users = [];
-            }else {
-                users = JSON.parse(userJson);
-            }
-            for(let i=0; i < users.length; i++){
-                if (users[i].email == req.body.correo){
-                    if(bcrypt.compareSync(req.body.contrasena, users[i].password)){
-                        const usuarioALoguearse = users[i];
+            let usuarios = users;
+            for(let i=0; i < usuarios.length; i++){
+                if (usuarios[i].email == req.body.correo){
+                    if(bcrypt.compareSync(req.body.contrasena, usuarios[i].password)){
+                        let usuarioALoguearse = usuarios[i];
                         break;
                     }
                 }
@@ -121,6 +115,7 @@ const controller = {
             res.render('/');
             
         }else{
+            console.log('hay errores');
             return res.render('login',{errors: errors.errors});
         }
         res.render('USUARIO LOGUEADO: ' + req.body.correo);
