@@ -1,126 +1,77 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const {validationResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 
 const usersFilePath = path.join(__dirname, '../models/usersData.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const controller = {
-    // Root - Show all users
+    // Formulario para iniciar sesión
     login: (req, res) => {
-        res.render('login'); // Cambia 'users' por el nombre de tu vista de usuarios
+        res.render('login'); // Renderiza la vista de inicio de sesión
     },
 
-    // Create - Form to create
+    // Formulario para registrar usuario
     register: (req, res) => {
-        res.render('register'); // Cambia 'user-create-form' por el nombre de tu vista de creación de usuarios
+        res.render('register'); // Renderiza la vista de registro de usuario
     },
 
-    // registro por post
+    // Procesar el registro de usuario
     processRegister: (req, res) => {
+        bcrypt.hash(req.body.contrasena, 10, (err, hashedPassword) => {
+            if (err) {
+                console.error('Error al cifrar la contraseña:', err);
+                res.redirect('/users/register'); // Manejar el error de cifrado
+            } else {
+                const newUser = {
+                    id: crypto.randomUUID(),
+                    avatar: req.file?.filename || "default.png",
+                    ...req.body,
+                    password: hashedPassword // Guardar la contraseña cifrada
+                };
 
-        //una forma mas rapido de hacer el newUser es
-        /*let newProduct = req.body // con esto toda la info del body pasa a la variable
-        newProduct.id = crypto.randomUUID() // de esta manera agregapor por parte lo q nos falta
-        newProduct.avatar= req.file?.filename || "default.png", // como el id y avatar*/
-        const newUser = {
-            id: crypto.randomUUID(),
-            avatar:req.file?.filename || "default.png",  
-            ...req.body
-        };
-          // los nombres de los input q sean iguales a la de la base de datos
-        users.push(newUser);
+                users.push(newUser);
 
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
+                fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
 
-        res.redirect('/');
-        },
-    // Store - Method to store
-   /* store: (req, res) => {
-        // Do the magic
-        const newUser = {
-            id: crypto.randomUUID(),
-            ...req.body
-        };
-
-        users.push(newUser);
-
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-
-        res.redirect('/');
-    },*/
-
-    // Update - Form to edit
-    edit: (req, res) => {
-        // Do the magic
-        const idFound = req.params.id;
-
-        const userFound = users.find(user => user.id === idFound);
-
-        res.render('user-edit-form'); // Cambia 'user-edit-form' por el nombre de tu vista de edición de usuarios
+                res.redirect('/');
+            }
+        });
     },
 
-    // Update - Method to update
-    update: (req, res) => {
-        // Do the magic
-        const idFound = req.params.id;
-
-        const indexFound = users.findIndex(user => user.id === idFound);
-
-        users[indexFound] = {
-            id: users[indexFound].id,
-            ...req.body
-        };
-
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-
-        res.redirect('/');
-    },
-
-    // Delete - Delete one user from DB
-    destroy: (req, res) => {
-        // Do the magic
-        const idToDelete = req.params.id;
-
-        const updatedUsers = users.filter(user => user.id !== idToDelete);
-
-        fs.writeFileSync(usersFilePath, JSON.stringify(updatedUsers, null, 2));
-
-        res.redirect('/');
-    },
-
+    // Procesar el inicio de sesión
     processLogin: (req, res) => {
         let errors = validationResult(req);
-        if (errors.isEmpty){
-            let usuarios = users;
-            for(let i=0; i < usuarios.length; i++){
-                if (usuarios[i].email == req.body.correo){
-                    if(bcrypt.compareSync(req.body.contrasena, usuarios[i].password)){
-                        let usuarioALoguearse = usuarios[i];
+        let usuarioALoguearse;
+
+        if (errors.isEmpty()) {
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].email == req.body.correo) {
+                    if (bcrypt.compareSync(req.body.contrasena, users[i].password)) {
+                        usuarioALoguearse = users[i];
                         break;
                     }
                 }
             }
-            if (usuarioALoguearse == undefined){
-                return res.render('login',{errors: [
-                    {msg: 'Credenciales invalidas'}
-                ]});
+            if (usuarioALoguearse == undefined) {
+                return res.render('login', {
+                    errors: [{ msg: 'Credenciales inválidas' }]
+                });
             }
 
             req.session.usuarioALoguearse = usuarioALoguearse;
-            
-            //redireccionar  a la home pero ya logueado
-            res.render('/');
-            
-        }else{
-            console.log('hay errores');
-            return res.render('login',{errors: errors.errors});
+
+            return res.redirect('/');
+
+        } else {
+            console.log('Hay errores');
+            return res.render('login', {
+                errors: errors.errors
+            });
         }
-        res.render('USUARIO LOGUEADO: ' + req.body.correo);
     }
-    
-};
+}
 
 module.exports = controller;

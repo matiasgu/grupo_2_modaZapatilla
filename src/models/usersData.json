@@ -4,7 +4,7 @@
     "firstName": "Franco",
     "lastName": "Abalos",
     "email": "franco.13.rodrigo@gmail.com",
-    "password": "contrsaeña123",
+    "password": "contraseña123",
     "category": "regular",
     "image": "avatar.jpg"
   },
@@ -60,5 +60,45 @@
     "country": "",
     "celular": "333",
     "acepto-terminos": "on"
+  },
+  {
+    "id": "6afebcf6-5fae-4ba5-b702-c4a1c7e9b701",
+    "avatar": "default.png",
+    "nombre": "franco",
+    "apellido": "abalos",
+    "usuario": "franco",
+    "contrasena": "contraseña123",
+    "confirmar-contrasena": "contraseña123",
+    "correo": "franco.13.rodrigo@gmail.com",
+    "country": "Argentina",
+    "celular": "",
+    "acepto-terminos": "on"
+  },
+  {
+    "id": "a7df8374-5a3a-42a3-bf7a-8927b75eb7ff",
+    "avatar": "default.png",
+    "nombre": "franco",
+    "apellido": "Abalos",
+    "usuario": "franco",
+    "contrasena": "contraseña123",
+    "confirmar-contrasena": "contraseña123",
+    "correo": "franco.13.rodrigo@gmail.com",
+    "country": "Argentina",
+    "celular": "",
+    "acepto-terminos": "on"
+  },
+  {
+    "id": "4db50478-2a4b-415d-a2e1-063b97ee63ad",
+    "avatar": "img-1714614430952.jpg",
+    "nombre": "Franco Rodrigo ",
+    "apellido": "Abalos",
+    "usuario": "franco",
+    "contrasena": "contraseña123",
+    "confirmar-contrasena": "contraseña123",
+    "correo": "franco.13.rodrigo@gmail.com",
+    "country": "Argentina",
+    "celular": "",
+    "acepto-terminos": "on",
+    "password": "$2b$10$fYHpYzzXbXoas.3UyV4VO.qUYpdEGsrcTQCDGd5rvNxfWBtfp1eam"
   }
 ]
