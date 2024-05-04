@@ -44,13 +44,12 @@ const controller = {
     // Procesar el inicio de sesión
     processLogin: (req, res) => {
         let errors = validationResult(req);
-        let usuarioALoguearse;
 
         if (errors.isEmpty()) {
             for (let i = 0; i < users.length; i++) {
                 if (users[i].email == req.body.correo) {
                     if (bcrypt.compareSync(req.body.contrasena, users[i].password)) {
-                        usuarioALoguearse = users[i];
+                        let usuarioALoguearse = users[i];
                         break;
                     }
                 }
