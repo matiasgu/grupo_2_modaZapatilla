@@ -18,10 +18,10 @@ const controller = {
     // registro por post
     processRegister: (req, res) => {
         //una forma mas rapido de hacer el newUser es
-        /*let newProduct = req.body // con esto toda la info del body pasa a la variable
-        newProduct.id = crypto.randomUUID() // de esta manera agregapor por parte lo q nos falta
-        newProduct.avatar= req.file?.filename || "default.png", // como el id y avatar*/
-        const newUser = {
+        /*let newUser = req.body // con esto toda la info del body pasa a la variable
+        newUser.id = crypto.randomUUID() // de esta manera agregapor por parte lo q nos falta
+        newUser.avatar= req.file?.filename || "default.png", // como el id y avatar*/
+       const newUser = {
             id: crypto.randomUUID(),
             avatar:req.file?.filename || "default.png",  
             ...req.body
