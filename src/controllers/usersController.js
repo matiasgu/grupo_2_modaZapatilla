@@ -25,13 +25,13 @@ const controller = {
         /*let newProduct = req.body // con esto toda la info del body pasa a la variable
         newProduct.id = crypto.randomUUID() // de esta manera agregapor por parte lo q nos falta
         newProduct.avatar= req.file?.filename || "default.png", // como el id y avatar*/
-       const newUser = {
+      /*  const newUser = {
             id: crypto.randomUUID(),
             avatar:req.file?.filename || "default.png",  
             ...req.body
         };
           // los nombres de los input q sean iguales a la de la base de datos
-        users.push(newUser);
+        users.push(newUser); */
 
         bcrypt.hash(req.body.contrasena, 10, (err, hashedPassword) => {
             if (err) {
@@ -45,7 +45,7 @@ const controller = {
                     password: hashedPassword // Guardar la contraseña cifrada
                 };
 
-
+                // los nombres de los input q sean iguales a la de la base de datos
                 users.push(newUser);
 
                 fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));

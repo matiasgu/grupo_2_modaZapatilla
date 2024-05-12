@@ -100,6 +100,19 @@
     "celular": "",
     "acepto-terminos": "on",
     "password": "$2b$10$fYHpYzzXbXoas.3UyV4VO.qUYpdEGsrcTQCDGd5rvNxfWBtfp1eam"
+  },
+  {
+    "id": "c6cabd92-44e1-4948-af2f-de640a444fe8",
+    "avatar": "img-1715503644357.jpg",
+    "nombre": "ttt",
+    "apellido": "ttt",
+    "usuario": "ttt",
+    "contrasena": "ttt",
+    "confirmar-contrasena": "ttt",
+    "correo": "tt@ttt.com",
+    "country": "Argentina",
+    "celular": "123",
+    "acepto-terminos": "on",
+    "password": "$2b$10$t6r3LGN0gIQ.e1XIxeDdMeOh6yUlyOaakltKRIk0IvztEELzQ9SFC"
   }
-  
 ]
