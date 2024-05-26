@@ -29,7 +29,7 @@ let cols = {
     }
 };
 let config = {
-    tableName : "moda_zapatillas",
+    tableName : "products",
     timestamps : false
 
 }

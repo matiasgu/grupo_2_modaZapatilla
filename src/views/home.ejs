@@ -11,12 +11,16 @@
             <div class="contenedor-productos">
             <% for (let i=0; i<productos.length; i++){ %>
                 <div class="producto">
-                    <a href="/products/<%= productos[i].id %>">
-                        <img class="producto-imagen" src="../img/imgProductDetail/<%= productos[i].img %>.png" alt="">
+                    <a href="/products/<%= productos[i].product_id %>">
+                        <img class="producto-imagen" src="../img/zapatillas_img/<%= productos[i].product_img %>.jpg" alt="">
                     </a>
                     <div class="producto-descripcion">                        
-                        <p class="titulo"><%= productos[i].name %></p>
-                        <p class="precios"><%= productos[i].price %><i class="fa-solid fa-cart-plus"></i></p>                       
+                        <p class="titulo"><%= productos[i].product_name %></p>
+                        <p class="titulo"><%= productos[i].product_brand %></p>                        
+                        <p class="precios"><%= productos[i].product_price %></p>
+                        <%if (productos[i].product_discount !== null ) { %>
+                            <p class="descuento">OFERTA <%= productos[i].product_discount %> %</p>  
+                        <% } %>                     
                     </div>
                 </div>
             <% } %>

@@ -4,13 +4,22 @@ const path = require('node:path');
 const productsFilePath = path.join(__dirname, '../models/productsData.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+//Codigo BD
+let db = require("../../database/models");
 
 const controller = {
 	home: (req, res) => {
-		// Do the magic
+		/*Do the magic
+			/*Codigo sin DB
 			const allProducts = products;
 			res.render('home',{
 				productos: allProducts
+			})
+			*/
+			db.Productos.findAll()
+			.then(function(productos) {
+				console.log(productos);
+				res.render('home',{productos: productos});
 			})
 	},
 	productsMen: (req, res) => {
