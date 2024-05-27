@@ -13,17 +13,19 @@
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<figure class="product-box_image">
-						<img src="/img/zapatillas_img/<%=producto.img%>.png" alt="Modelo <%= producto.name%>">
+						<img src="/img/zapatillas_img/<%=producto.product_img%>.jpg" alt="Modelo <%= producto.product_name%>">
 					</figure>
 					<article class="product-box_data">
-						<h2>PRECIO FINAL ARG$ <%= producto.price%> <h2>
-						<span>Marca <%= producto.brand%></span>
-						<span>Oferta 5% OFF</span>
+						<p><h2>PRECIO FINAL ARG$ <%= producto.product_price%> <h2></p>
+						<p><h4>Marca <%= producto.product_brand%></h4></p>
+						<%if (producto.product_discount !== null) { %>
+							<p><h3>Super Oferta <%= producto.product_discount%>%</h3></p>
+						<% } %>
 						<i class="fas fa-truck"></i>
 					</article>
 					<p>
 							<p> <a class="botonCrear" href="/products/create/">CREAR PRODUCTO</a></p>
-							<p> <a class="botonEditar" href="/products/edit/<%= producto.id%>">EDITAR</button></p>					
+							<p> <a class="botonEditar" href="/products/edit/<%= producto.product_id%>">EDITAR</button></p>					
 							<a  class="botonVolver" href="/">ATRAS</a>
 					</p>
 				</section>

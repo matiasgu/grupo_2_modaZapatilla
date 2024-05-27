@@ -31,14 +31,16 @@ const controller = {
 		console.log(products[productFound]);
 		res.render('productDetail', {producto : products[productFound]});
 		*/
+		db.Productos.findByPk(req.params.id)
+			.then(function(producto) {
+				res.render('productDetail', {producto : producto});
+			})
 	},
 
 	// Create - Form to create
 	create: (req, res) => {
 		console.log("estoy en el create");
-		/*Codigo sin BD
 		res.render('productCreate');
-		*/
 	},
 	
 	// Create -  Method to store

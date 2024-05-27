@@ -13,8 +13,8 @@ router.get('/', productsController.index);
 // router.post('/store/', productsController.store); 
 
 
-// /*** GET ONE PRODUCT ***/ 
-// router.get('/:id', productsController.detail); 
+/*** GET ONE PRODUCT ***/ 
+router.get('/:id', productsController.detail); 
 
 // /*** EDIT ONE PRODUCT ***/ 
 // router.get('/edit/:id', productsController.edit); 
