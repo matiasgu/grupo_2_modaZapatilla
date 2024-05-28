@@ -65,6 +65,17 @@ const controller = {
 
         res.redirect('/')		
 		*/
+
+		db.Productos.create ({
+				product_name: req.params.product_name,
+				product_brand: req.params.product_brand,
+				product_detail: req.params.product_detail,
+				product_category: req.params.product_detail,
+				product_price: req.params.product_price,
+				product_discount: req.params.product_discount,
+				product_img: req.params.product_img
+			}).then(() =>
+				res.redirect('/'));
 	},
 
 	// Update - Form to edit
