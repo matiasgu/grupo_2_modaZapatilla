@@ -65,15 +65,15 @@ const controller = {
 
         res.redirect('/')		
 		*/
-
+		console.log(req.body);
 		db.Productos.create ({
-				product_name: req.params.product_name,
-				product_brand: req.params.product_brand,
-				product_detail: req.params.product_detail,
-				product_category: req.params.product_detail,
-				product_price: req.params.product_price,
-				product_discount: req.params.product_discount,
-				product_img: req.params.product_img
+				product_name: req.body.product_name,
+				product_brand: req.body.product_brand,
+				product_detail: req.body.product_detail,
+				product_category: req.body.product_detail,
+				product_price: req.body.product_price,
+				product_discount: req.body.product_discount,
+				product_img: req.body.product_img
 			}).then(() =>
 				res.redirect('/'));
 	},
