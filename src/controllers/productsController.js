@@ -66,11 +66,14 @@ const controller = {
         res.redirect('/')		
 		*/
 		console.log(req.body);
+		if (req.body.product_discount == 0){
+			req.body.product_discount = null;
+		}
 		db.Productos.create ({
 				product_name: req.body.product_name,
 				product_brand: req.body.product_brand,
 				product_detail: req.body.product_detail,
-				product_category: req.body.product_detail,
+				product_category: req.body.product_category,
 				product_price: req.body.product_price,
 				product_discount: req.body.product_discount,
 				product_img: req.body.product_img
@@ -86,10 +89,17 @@ const controller = {
         const productFound = products.find( ( product ) => product.id === idFound );
 		console.log("estoy en el edit");
 		res.render('productLoad', {producto: productFound}); 
+		*/
+		console.log("estoy en el edit");
+		db.Productos.findByPk(req.params.id)
+		.then(function(producto) {
+			res.render('productLoad', {producto: producto});
+		})
 	},
 	// Update - Method to update
 	update: (req, res) => {
 		// Do the magic
+		/*codigo sin bd
         const idFound = req.params.id;
 		console.log("estoy en el edit update" + idFound);
         const indexFound = products.findIndex( ( product ) => product.id === idFound );
@@ -108,6 +118,22 @@ const controller = {
 
         res.redirect('/');
 		*/
+		console.log('estoy en el edit');
+		db.Productos.update({
+			product_name: req.body.product_name,
+			product_brand: req.body.product_brand,
+			product_detail: req.body.product_detail,
+			product_category: req.body.product_category,
+			product_price: req.body.product_price,
+			product_discount: req.body.product_discount,
+			product_img: req.body.product_img
+		},
+		{
+			where:{
+				product_id: req.params.id
+			}
+		}).then(() => 
+			res.redirect('/'));
 	},
 
 	// Delete - Delete one product from DB
@@ -122,6 +148,12 @@ const controller = {
 
         res.redirect('/')
 		*/
+		db.Productos.destroy({
+			where: {
+				product_id : req.params.id
+			}
+		}).then( () =>
+			res.redirect('/'));
 	}
 };
 
