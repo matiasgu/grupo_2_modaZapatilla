@@ -34,5 +34,14 @@ let config = {
 
 }
 const Producto = sequelize.define(alias, cols, config);
+Producto.associate = (models) => {
+    Producto.belongsToMay(models.CompraCarrito, {
+        as: "compracarrito",
+        through: 'CartsProducts',
+        foreingKey: "product_id",
+        otherKey: 'shopCart_id',
+        timestamps: false
+    })
+}   
 return Producto;
 }
