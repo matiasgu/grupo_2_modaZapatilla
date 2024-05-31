@@ -16,17 +16,16 @@ module.exports = (sequelize, dataTypes) => {
     let config = {
         tableName : "shopcarts",
         timestamps : false
-
     }
+    const CompraCarrito = sequelize.define(alias, cols, config);
     CompraCarrito.associate = (models) => {
-        CompraCarrito.belongsToMay(models.Producto, {
+        CompraCarrito.belongsToMany(models.Productos, {
             as: "producto",
-            through: 'CartsProducts',
-            foreingKey: "shopCart_id",
+            through: 'cartproducts',
+            foreingKey: "shopcart_id",
             otherKey: 'product_id',
             timestamps: false
         })
     }   
-    const CompraCarrito = sequelize.define(alias, cols, config);
     return CompraCarrito;
 }
