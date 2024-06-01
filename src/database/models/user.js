@@ -6,7 +6,7 @@ const { update } = require('../../controllers/productsController');
  * @param {import('sequelize/types')DataTypes.} dataTypes
  */
 module.exports = (sequelize, DataTypes) => {
-    let alias = "Users"; // Nombre del alias en plural
+    let alias = "User";  // esto debería estar en singular
     let cols = {
         user_id: {
             type: DataTypes.INTEGER,
@@ -46,8 +46,8 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
     let config = {
-        tableName: "users", //no hace falta
-        timestamps: false,
+        
+        timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at',

@@ -6,6 +6,14 @@ const bcrypt = require('bcrypt');
 
 const usersFilePath = path.join(__dirname, '../models/usersData.json');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+/* -------------sequelize------------------ */
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+/* llamo a los modelos creados */
+const Users = db.User;
+//const Products = db.Product;
+//const ShopCarts = db.ShopCart; 
 
 const controller = {
     // Formulario para iniciar sesión
@@ -18,8 +26,8 @@ const controller = {
         res.render('register'); // Renderiza la vista de registro de usuario
     },
 
-    // Procesar el registro de usuario
-    processRegister: (req, res) => {
+    /* -----------------------JSON-------------------------------- */
+   /*  processRegister: (req, res) => {// Procesar el registro de usuario
 
         //una forma mas rapido de hacer el newUser es
         /*let newProduct = req.body // con esto toda la info del body pasa a la variable
@@ -31,8 +39,8 @@ const controller = {
             ...req.body
         };
           // los nombres de los input q sean iguales a la de la base de datos
-        users.push(newUser); */
-
+        //users.push(newUser); 
+        
         bcrypt.hash(req.body.contrasena, 10, (err, hashedPassword) => {
             if (err) {
                 console.error('Error al cifrar la contraseña:', err);
@@ -53,8 +61,41 @@ const controller = {
                 res.redirect('/');
             }
         });
-    },
+       
+      
+    }, */
+    /* -----------------------BASE DE DATO -------------------------------- */
+    processRegister: async function(req, res) { // Procesar el registro de usuario
+        
+       /*  bcrypt.hash(req.body.contrasena, 10, (err, hashedPassword) => { */
+           
+                try{
+                const hashedPassword = await bcrypt.hash(req.body.contrasena, 10);
+                 try{
+                 await db.User.create({
+                    user_name: req.body.nombre,
+                    user_lastname: req.body.apellido,
+                    user_email: req.body.correo,
+                    user_password: hashedPassword,
+                    user_adress: req.body.direccion || null,
+                    user_category: req.body.user_category || 'usr',
+                    user_image: req.file?.filename || "default.png",
+                });
+                // los nombres de los input q sean iguales a la de la base de datos
+               
 
+                res.redirect('/'); 
+            }catch(dbError){
+                              
+                console.error('Error al crear el usuario en la base de datos:', dbError);
+                res.send(`<h1>Error al crear el usuario: ${dbError.message}</h1>`);
+             }
+            } catch (hashError){
+                console.error('Error al cifrar la contraseña:', hashError);
+                res.redirect('/users/register'); // Manejar el error de cifrado
+            }  
+ 
+    },
     // Procesar el inicio de sesión
     processLogin: (req, res) => {
         let errors = validationResult(req);
@@ -85,6 +126,6 @@ const controller = {
             });
         }
     }
-}
 
+}
 module.exports = controller;
