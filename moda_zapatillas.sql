@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2024 a las 01:55:58
+-- Tiempo de generación: 01-06-2024 a las 12:59:27
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -99,19 +99,22 @@ CREATE TABLE `users` (
   `user_password` varchar(10) NOT NULL,
   `user_adress` varchar(50) DEFAULT NULL,
   `user_category` varchar(8) NOT NULL,
-  `user_image` varchar(30) DEFAULT NULL
+  `user_image` varchar(30) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_name`, `user_lastname`, `user_email`, `user_password`, `user_adress`, `user_category`, `user_image`) VALUES
-(1, 'Pepito', 'Perez', 'pepito@gmail.com', '1234', NULL, 'adm', '01-Perez'),
-(2, 'Mario', 'Bross', 'mario@gmail.com', '1234', NULL, 'usr', '02-Mario'),
-(3, 'Homero', 'Simpson', 'homero@gmail.com', '1234', NULL, 'usr', '03-Homero'),
-(4, 'Merlina', 'Adams', 'mer@gmail.com', '1234', NULL, 'usr', '04-Merlina'),
-(5, 'Arenita', 'Mejillas', 'arenita@gmail.com', '1234', NULL, 'usr', '05-Arenita');
+INSERT INTO `users` (`user_id`, `user_name`, `user_lastname`, `user_email`, `user_password`, `user_adress`, `user_category`, `user_image`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Pepito', 'Perez', 'pepito@gmail.com', '1234', NULL, 'adm', '01-Perez', NULL, NULL, NULL),
+(2, 'Mario', 'Bross', 'mario@gmail.com', '1234', NULL, 'usr', '02-Mario', NULL, NULL, NULL),
+(3, 'Homero', 'Simpson', 'homero@gmail.com', '1234', NULL, 'usr', '03-Homero', NULL, NULL, NULL),
+(4, 'Merlina', 'Adams', 'mer@gmail.com', '1234', NULL, 'usr', '04-Merlina', NULL, NULL, NULL),
+(5, 'Arenita', 'Mejillas', 'arenita@gmail.com', '1234', NULL, 'usr', '05-Arenita', NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
