@@ -53,8 +53,18 @@ module.exports = (sequelize, DataTypes) => {
         deletedAt: 'deleted_at',
         paranoid: true
     }
-    
+
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = (models) => {
+    User.belongsTo(models.CompraCarrito, {
+        as: "compracarrito",
+        foreingKey: "user_id",
+        otherKey: 'shopcart_id',
+        timestamps: false
+        })
+    }  
+
 
     // Aquí podrías definir asociaciones si existen
     // Por ejemplo, si un usuario puede tener muchas órdenes:
@@ -64,6 +74,7 @@ module.exports = (sequelize, DataTypes) => {
     //         foreignKey: "user_id"
     //     });
     // }
+
 
     return User;
 };

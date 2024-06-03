@@ -26,6 +26,15 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'product_id',
             timestamps: false
         })
+        CompraCarrito.associate = (models) => {
+            CompraCarrito.hasMany(models.User, {
+                as: "user",
+                foreingKey: "shopcart_id",
+                otherKey: 'user_id',
+                timestamps: false
+                })
+            }  
+            
     }   
     return CompraCarrito;
 }
