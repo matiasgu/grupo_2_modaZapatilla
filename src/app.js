@@ -29,10 +29,12 @@ app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la 
 const mainRoute = require('./routes/homeRoutes'); // Rutas main
 const productsRoutes = require('./routes/productRoutes'); // Rutas /products
 const usersRoutes = require('./routes/userRoutes'); // Rutas /users
+const shopCartsRoutes = require('./routes/shopCartRoutes'); // Rutas /carritoCompras
 
 app.use('/', mainRoute);
 app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
+app.use('/shopcarts', shopCartsRoutes);
 
 /////**********OTHERS*********
 app.listen(3000, () => console.log('Server running at http://localhost:3000'));

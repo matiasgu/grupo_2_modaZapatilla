@@ -20,7 +20,10 @@
                         <p class="precios"><%= productos[i].product_price %></p>
                         <%if (productos[i].product_discount !== null ) { %>
                             <p class="descuento">OFERTA <%= productos[i].product_discount %> %</p>  
-                        <% } %>                     
+                        <% } %>  
+                        <a href="/products/<%= productos[i].product_id%>">
+                            <button class="add-to-cart-btn" type="button"> AGREGAR AL CARRITO</button>
+                        </a>                 
                     </div>
                 </div>
             <% } %>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2024 a las 12:59:27
+-- Tiempo de generación: 04-06-2024 a las 02:03:21
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -57,7 +57,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_brand`, `product_detail`, `product_category`, `product_price`, `product_discount`, `product_img`) VALUES
 (1, 'Zapatillas Nike Star Runner 3', 'nike', NULL, 'kids', 70890.6, NULL, '01-zapatillas_nike_kids'),
-(2, 'Zapatillas adidas Runfalcon 3.0 Hombre', 'adidas', NULL, 'man', 85492.2, NULL, '02_zapatillas_run_adidas_man'),
+(2, 'Zapatillas adidas Runfalcon 3.0 Hombre', 'adidas', 'Estas versátiles zapatillas de running Adidas son perfectas para correr en el parque y después tomar', 'man', 85492.2, 10, '02_zapatillas_run_adidas_man'),
 (3, 'Zapatillas Puma Caven 2.0', 'puma', NULL, 'unisex', 62708.4, NULL, '03_zapatillas_adidas_unisex'),
 (4, 'Zapatillas Nike Air Max Sc Mujer', 'nike', NULL, 'woman', 125482, 20, '04-zatillas_nilke_woman'),
 (5, 'Zapatillas Nike Borough Low Recraft', 'nike', NULL, 'kids', 78798, 15, '05-zapatillas_nike_kids'),
@@ -70,7 +70,9 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_brand`, `product_
 (12, 'Zapatillas Running Puma Pwr Xx Nitro', 'puma', NULL, 'woman', 954785, NULL, '12-zapatillas_adidas_woman'),
 (13, 'Zapatillas Puma X-ray Tour', 'puma', NULL, 'unisex', 75975.2, NULL, '13_zapatillas_puma_unisex'),
 (14, 'Zapatillas adidas Grand Court Lifestyle', 'puma', NULL, 'unisex', 64757, 20, '14_zapatillas_adidas_unisex'),
-(15, 'Zapatillas Nike Revolution 6', 'nike', NULL, 'unisex', 91000, NULL, '15_zapatillas_nike_unisex');
+(15, 'Zapatillas Nike Revolution 6', 'nike', NULL, 'unisex', 91000, NULL, '15_zapatillas_nike_unisex'),
+(22, 'Zapatillas Running Nike React Infinity 3', 'nike', '', 'woman', 180000, 0, '16_zapatillas_nike_woman.jpg'),
+(23, 'Zapatillas Training Air Max Alpha Trainer 5 ', 'nike', '', 'man', 150000, NULL, '17_zapatillas_nike_man.jpg');
 
 -- --------------------------------------------------------
 
@@ -161,7 +163,7 @@ ALTER TABLE `cartproducts`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `product_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `shopcarts`
