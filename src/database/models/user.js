@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     };
     let config = {
-        
+        tableName : "users",
         timestamps: true,
         createdAt: 'created_at',
         updatedAt: 'updated_at',
@@ -57,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define(alias, cols, config);
 
     User.associate = (models) => {
-    User.belongsTo(models.CompraCarrito, {
+    User.hasMany(models.CompraCarrito, {
         as: "compracarrito",
         foreingKey: "user_id",
         otherKey: 'shopcart_id',

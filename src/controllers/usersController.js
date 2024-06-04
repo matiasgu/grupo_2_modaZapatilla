@@ -1,7 +1,7 @@
 const fs = require('fs'); /* hola */
 const path = require('path');
 const crypto = require('crypto');
-const { validationResult } = require('express-validator');
+const { check, validationResult, body } = require('express-validator');
 const bcrypt = require('bcrypt');
 
 const usersFilePath = path.join(__dirname, '../models/usersData.json');
@@ -9,15 +9,16 @@ let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 /* -------------sequelize------------------ */
 const db = require('../database/models');
 const sequelize = db.sequelize;
-const { Op } = require("sequelize");
 /* llamo a los modelos creados */
 const Users = db.User;
+const Op = db.Sequelize.Op;
 //const Products = db.Product;
 //const ShopCarts = db.ShopCart; 
 
 const controller = {
     // Formulario para iniciar sesión
     login: (req, res) => {
+        console.log('estoy por loguearme');
         res.render('login'); // Renderiza la vista de inicio de sesión
     },
 
@@ -99,26 +100,30 @@ const controller = {
     // Procesar el inicio de sesión
     processLogin: (req, res) => {
         let errors = validationResult(req);
-
         if (errors.isEmpty()) {
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].email == req.body.correo) {
-                    if (bcrypt.compareSync(req.body.contrasena, users[i].password)) {
-                        let usuarioALoguearse = users[i];
-                        break;
-                    }
-                }
-            }
-            if (usuarioALoguearse == undefined) {
+            console.log(req.body);
+            let usuarioALoguearse = undefined;
+            db.User.findOne({
+                where: {
+                    [Op.and]:[
+                        {
+                            user_email : req.body.user_email
+                        },
+                        {
+                            user_password : req.body.user_password
+                        }
+                    ]}
+            }).then(function(usuario) {
+                console.log('el usuario es correcto');
+                usuarioALoguearse = req.body.user_email;
+                return res.redirect('/');
+            }).catch(function(error){
+                console.log('no existe usuario');
                 return res.render('login', {
                     errors: [{ msg: 'Credenciales inválidas' }]
                 });
-            }
-
+            })
             req.session.usuarioALoguearse = usuarioALoguearse;
-
-            return res.redirect('/');
-
         } else {
             console.log('Hay errores');
             return res.render('login', {

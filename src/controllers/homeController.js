@@ -37,11 +37,9 @@ const controller = {
 			},
 			{
 				product_category : 'unisex'
-			}]
-			}	
-		}		
-		)
-		.then(function(productos) {
+			}
+			]}	
+		}).then(function(productos) {
 			res.render('home',{productos: productos});
 		})
 	},

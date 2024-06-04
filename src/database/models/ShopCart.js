@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
             timestamps: false
         })
         CompraCarrito.associate = (models) => {
-            CompraCarrito.hasMany(models.User, {
+            CompraCarrito.belongsTo(models.User, {
                 as: "user",
                 foreingKey: "shopcart_id",
                 otherKey: 'user_id',

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const { check } = require('express-validator');
+const { check, validationResult, body } = require('express-validator');
 
 /******** MULTER Configuracion ************/
 
@@ -24,7 +24,7 @@ const usersController = require('../controllers/usersController');
 
 // Middleware para verificar la autenticación del usuario
 const verificarAutenticacion = (req, res, next) => {
-    if (req.session.usuarioLogueado) {
+    if (req.session.usuarioLogueado != undefined) {
         next(); // El usuario está autenticado, pasa al siguiente middleware o ruta
     } else {
         res.redirect('/users/login'); // El usuario no está autenticado, redirigir al login
@@ -33,9 +33,11 @@ const verificarAutenticacion = (req, res, next) => {
 
 // Middleware para verificar si el usuario ya está autenticado, en cuyo caso se redirige al perfil
 const verificarUsuarioLogueado = (req, res, next) => {
-    if (req.session.usuarioALoguearse) {
+    if (req.session.usuarioALoguearse != undefined) {
+        console.log('usuario existe');
         res.redirect('/users/profile'); // El usuario ya está autenticado, redirigir al perfil
     } else {
+        console.log('no usuario existe');
         next(); // El usuario no está autenticado, continúa con el siguiente middleware o ruta
     }
 }
