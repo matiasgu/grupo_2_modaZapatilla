@@ -19,7 +19,10 @@ const controller = {
 			*/
 			db.Productos.findAll()
 			.then(function(productos) {
-				res.render('home',{productos: productos});
+				res.render('home',{
+					productos: productos,
+					usuario: req.session.usuarioLogueado
+				});
 			})
 	},
 	productsMen: (req, res) => {
@@ -111,6 +114,21 @@ const controller = {
         req.session.numeroVisitas ++;
         res.send('VISITA NRO: ' + req.session.numeroVisitas);
     }
+	/*
+	    controlSession: (req, res) => {
+        if(req.session.usuarioLogueado == undefined) {
+			db.Productos.findAll()
+			.then(function(productos) {
+				res.render('home',{
+					productos: productos,
+					usuario: req.session.usuarioLogueado
+				});
+			})
+        }else{
+
+		}
+    }
+	 */
 
 };
 

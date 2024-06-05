@@ -116,7 +116,7 @@ const controller = {
                 console.log(usuario);
                 if (usuario != null ) {
                     console.log('se encontro el usuario');
-                    req.session.usuarioLogueado = req.body.user_email;
+                    req.session.usuarioLogueado = usuario;
                     return res.redirect('/');
                 }else{
                     console.log('no existe usuario');
