@@ -33,7 +33,7 @@ const verificarAutenticacion = (req, res, next) => {
 
 // Middleware para verificar si el usuario ya está autenticado, en cuyo caso se redirige al perfil
 const verificarUsuarioLogueado = (req, res, next) => {
-    if (req.session.usuarioALoguearse != undefined) {
+    if (req.session.usuarioLogueado != undefined) {
         console.log('usuario existe');
         res.redirect('/users/profile'); // El usuario ya está autenticado, redirigir al perfil
     } else {
@@ -51,8 +51,8 @@ router.post('/register', verificarUsuarioLogueado, upload.single('avatar'), user
 router.get('/login', verificarUsuarioLogueado, usersController.login);
 // Procesar el login
 router.post('/login', verificarUsuarioLogueado, [
-    check('correo').isEmail().withMessage('Email inválido'),
-    check('contrasena').isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres')
+  //  check('correo').isEmail().withMessage('Email inválido'),
+  //  check('contrasena').isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres')
 ], usersController.processLogin);
 
 //Usuario Logueado
@@ -60,7 +60,7 @@ router.get('/check', function (req, res) {
     if (req.session.usuarioLogueado == undefined) {
         res.send('No estás logueado');
     } else {
-        res.send('Usuario Logueado: ' + req.session.usuarioLogueado.email);
+        res.send('Usuario Logueado: ' + req.session.usuarioLogueado.user_email);
     }
 });
 
