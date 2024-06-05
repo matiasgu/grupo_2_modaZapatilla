@@ -84,13 +84,32 @@ const controller = {
 		})		
 	},
 
+	productsDiscount: (req, res) =>{
+		/*CODIGO SIN DB
+		console.log("estoy en zapatillas de niños");
+		const prodKids = products.filter((prod) => prod.category === 'kids')
+		res.render('home', {
+			productos: prodKids
+		});
+		*/
+		db.Productos.findAll({
+			where: {
+			[Op.not]:[{
+				product_discount : null
+			}]
+			}
+		})
+		.then(function(productos) {
+			res.render('home',{productos: productos});
+		})		
+	},
+
     controlSession: (req, res) => {
         if(req.session.numeroVisitas == undefined){
             req.session.numeroVisitas = 0;
         }
         req.session.numeroVisitas ++;
         res.send('VISITA NRO: ' + req.session.numeroVisitas);
-
     }
 
 };

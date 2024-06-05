@@ -102,7 +102,6 @@ const controller = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             console.log(req.body);
-            //let usuarioALoguearse = undefined;
             db.User.findOne({
                 where: {
                     [Op.and]:[
@@ -117,7 +116,6 @@ const controller = {
                 console.log(usuario);
                 if (usuario != null ) {
                     console.log('se encontro el usuario');
-                    //usuarioALoguearse = req.body.user_email;
                     req.session.usuarioLogueado = req.body.user_email;
                     return res.redirect('/');
                 }else{
@@ -127,14 +125,7 @@ const controller = {
                         errors: [{ msg: 'Credenciales inválidas' }]
                     });  
                 }
-                
-            })/*.catch(function(error){
-                console.log('no existe usuario');
-                return res.render('login', {
-                    errors: [{ msg: 'Credenciales inválidas' }]
-                });
-            })*/
-            //req.session.usuarioLogueado = usuarioALoguearse;
+            })
         } else {
             console.log('Hay errores');
             return res.render('login', {
