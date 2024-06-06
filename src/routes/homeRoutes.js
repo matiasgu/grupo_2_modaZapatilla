@@ -9,5 +9,5 @@ router.get('/womans/', homeController.productsWoman);
 router.get('/kids/', homeController.productsKids);
 router.get('/ofertas/', homeController.productsDiscount);
 router.get('/control-session', homeController.controlSession);
-
+router.get('/adm', homeController.sessionAdm);
 module.exports = router;

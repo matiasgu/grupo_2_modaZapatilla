@@ -113,6 +113,16 @@ const controller = {
         }
         req.session.numeroVisitas ++;
         res.send('VISITA NRO: ' + req.session.numeroVisitas);
+    },
+
+    sessionAdm: (req, res) => {
+		db.Productos.findAll()
+		.then(function(productos) {
+			res.render('homeAdm',{
+				productos: productos,
+				usuario: req.session.usuarioLogueado
+			});
+		})
     }
 	/*
 	    controlSession: (req, res) => {
