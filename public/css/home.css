@@ -18,14 +18,17 @@ header{
     align-items: center;
     margin-bottom: 10px;
     max-width: 1200px;
-    text-align: center;
+    justify-content: flex-start;
+    /*text-align: center;*/
     margin:auto
 }
 .logo{
     width: 50%;
+    
 }
 .logo img{
     width: 50%;
+    
 }
 .buscador{
     position: relative;
