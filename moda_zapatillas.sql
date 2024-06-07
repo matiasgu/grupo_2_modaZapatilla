@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2024 a las 02:03:21
+-- Tiempo de generación: 07-06-2024 a las 14:29:34
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -77,12 +77,32 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_brand`, `product_
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`) VALUES
+(1, 'customer'),
+(2, 'admin'),
+(3, 'gestor');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `shopcarts`
 --
 
 CREATE TABLE `shopcarts` (
   `shopcart_id` int(8) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
   `shopcart_date` date NOT NULL,
   `shopcart_total` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -94,16 +114,19 @@ CREATE TABLE `shopcarts` (
 --
 
 CREATE TABLE `users` (
-  `user_id` int(4) NOT NULL,
-  `user_name` varchar(50) NOT NULL,
-  `user_lastname` varchar(50) NOT NULL,
-  `user_email` varchar(50) NOT NULL,
-  `user_password` varchar(10) NOT NULL,
-  `user_adress` varchar(50) DEFAULT NULL,
-  `user_category` varchar(8) NOT NULL,
-  `user_image` varchar(30) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `user` varchar(50) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  `country` varchar(50) NOT NULL,
+  `address` varchar(200) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `role_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -111,12 +134,17 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_name`, `user_lastname`, `user_email`, `user_password`, `user_adress`, `user_category`, `user_image`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Pepito', 'Perez', 'pepito@gmail.com', '1234', NULL, 'adm', '01-Perez', NULL, NULL, NULL),
-(2, 'Mario', 'Bross', 'mario@gmail.com', '1234', NULL, 'usr', '02-Mario', NULL, NULL, NULL),
-(3, 'Homero', 'Simpson', 'homero@gmail.com', '1234', NULL, 'usr', '03-Homero', NULL, NULL, NULL),
-(4, 'Merlina', 'Adams', 'mer@gmail.com', '1234', NULL, 'usr', '04-Merlina', NULL, NULL, NULL),
-(5, 'Arenita', 'Mejillas', 'arenita@gmail.com', '1234', NULL, 'usr', '05-Arenita', NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `lastname`, `user`, `password`, `email`, `image`, `country`, `address`, `phone`, `role_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Pepito', 'Perez', 'pepito', '1234', 'pepito@gmail.com', '01-Perez', 'Argentina', NULL, NULL, 3, '2024-06-07 06:56:27', '2024-06-07 06:57:33', NULL),
+(2, 'Mario', 'Bross', 'mario', '1234', 'mario@gmail.com', '02-Mario', 'Argentina', NULL, NULL, 2, '2024-06-07 06:56:27', '2024-06-07 06:57:46', NULL),
+(3, 'Homero', 'Simpson', 'homero', '1234', 'homero@gmail.com', '03-Homero', 'Argentina', NULL, NULL, 1, '2024-06-07 06:56:27', '2024-06-07 06:57:54', NULL),
+(4, 'Merlina', 'Adams', 'mer', '1234', 'mer@gmail.com', '04-Merlina', 'Argentina', NULL, NULL, 1, '2024-06-07 06:56:27', '2024-06-07 06:58:01', NULL),
+(5, 'Arenita', 'Mejillas', 'arenita', '1234', 'arenita@gmail.com', '05-Arenita', 'Argentina', NULL, NULL, 1, '2024-06-07 06:56:27', '2024-06-07 06:58:08', NULL),
+(6, 'aa', 'aa', 'aa', '$2b$10$.q2OFh7hJb8/64eLjYzKveSbh04TNCJM1FRNdyCpBLQVkYb13U3NG', 'aa@aa.com', NULL, 'Argentina', NULL, '11', 1, '2024-06-07 09:37:39', '2024-06-07 09:37:39', NULL),
+(7, 'bb', 'bb', 'bb', '$2b$10$2SfZO6t4IsnZmnWos3prVu7YKdp5Qy.FQRJkvMiWUzwcW2b0OcQjW', 'bb@bb.com', NULL, 'Argentina', NULL, '123123', 1, '2024-06-07 09:39:15', '2024-06-07 09:39:15', NULL),
+(8, 'cc', 'cc', 'cc', '$2b$10$ZqF3fcgMLV1WfuN8zdzlCugWIOGF.vPyAnDr24GT3t.6VlNNKSnHe', 'cc@cc.com', 'img-1717753463082.png', 'Argentina', NULL, '123123123', 1, '2024-06-07 09:44:23', '2024-06-07 09:44:23', NULL),
+(9, 'dd', 'dd', 'dd', '$2b$10$BBmU60.qB5lPjf/XT8FMG.4LAji1p2mtPsiGZn02kE9ClZ7PaCfHe', 'dd@dd.com', 'img-1717754881881.png', 'Argentina', 'san salvador de jujuy', '123123', 1, '2024-06-07 10:08:01', '2024-06-07 10:08:01', NULL),
+(10, 'eee', 'ee', 'ee', '$2b$10$dVQ.ye/5T5oCN./KpLFtHeEtQDd9W336qBu63rv33p5vikHTdaDIW', 'ee@ee.com', 'img-1717756904159.png', 'Argentina', 'san salvador de jujuy', '123123', 1, '2024-06-07 10:41:44', '2024-06-07 10:41:44', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -137,17 +165,24 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`);
 
 --
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `shopcarts`
 --
 ALTER TABLE `shopcarts`
   ADD PRIMARY KEY (`shopcart_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `fk_user_id` (`user_id`);
 
 --
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -166,6 +201,12 @@ ALTER TABLE `products`
   MODIFY `product_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `shopcarts`
 --
 ALTER TABLE `shopcarts`
@@ -175,7 +216,7 @@ ALTER TABLE `shopcarts`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
@@ -192,7 +233,13 @@ ALTER TABLE `cartproducts`
 -- Filtros para la tabla `shopcarts`
 --
 ALTER TABLE `shopcarts`
-  ADD CONSTRAINT `shopcarts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+  ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Filtros para la tabla `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
