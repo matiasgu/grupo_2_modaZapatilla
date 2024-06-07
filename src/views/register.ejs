@@ -12,30 +12,30 @@
                     <form action="/users/register" method="post" enctype="multipart/form-data">
                         <!-- Campo: Nombre -->
                         <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Jose" required>
+                        <input type="text" id="name" name="name" placeholder="Ej: Juan Jose" required>
                         <!-- Campo: Apellido -->
                         <label for="apellido">Apellido:</label>
-                        <input type="text" id="apellido" name="apellido" placeholder="Ej: Perez" required>
+                        <input type="text" id="lastname" name="lastname" placeholder="Ej: Perez" required>
                         <!-- Campo: Usuario -->
                         <label for="usuario">Nombre de usuari@:</label>
-                        <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" required>
+                        <input type="text" id="user" name="user" placeholder="Nombre de usuario" required>
                         <!-- Campo: Contraseña -->
                         <label for="contrasena">Contraseña:</label>
-                        <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña"
+                        <input type="password" id="password" name="password" placeholder="Ingrese su contraseña"
                             required>
                         <!-- Campo: Confirmar Contraseña -->
                         <label for="confirmar-contrasena">Confirmar Contraseña:</label>
-                        <input type="password" id="confirmar-contrasena" name="confirmar-contrasena"
+                        <input type="password" id="confirmPassword" name="confirmPassword"
                             placeholder="Confirme su contraseña" required>
                         <!-- Campo: Correo -->
                         <label for="correo">Correo:</label>
-                        <input type="email" id="correo" name="correo" placeholder="Ej: juanperez@gmail.com" required>
+                        <input type="email" id="email" name="email" placeholder="Ej: juanperez@gmail.com" required>
                         <!-- Campo: avatar -->
                         <div>
                             <label for="foto">Foto de usuario:</label>
                         </div>
                         <div>
-                            <input type="file" id="avatar" name="avatar" accept="image/*">
+                            <input type="file" id="image" name="image" accept="image/*">
                         </div>
                         <!-- Campo: pais de nacimiento -->
                         <label>País de nacimiento:</label>
@@ -61,7 +61,7 @@
 								<% } %>
                         <!-- Campo: Celular o Teléfono (opcional) -->
                         <label for="celular">Celular o Teléfono (opcional):</label>
-                        <input type="tel" id="celular" name="celular" placeholder="Ej: 1545000000">
+                        <input type="tel" id="phone" name="phone" placeholder="Ej: 1545000000">
 
                         <!-- Checkbox: Aceptar términos y condiciones -->
                         <label>

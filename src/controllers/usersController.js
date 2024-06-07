@@ -27,65 +27,32 @@ const controller = {
         res.render('register'); // Renderiza la vista de registro de usuario
     },
 
-    /* -----------------------JSON-------------------------------- */
-   /*  processRegister: (req, res) => {// Procesar el registro de usuario
-
-        //una forma mas rapido de hacer el newUser es
-        /*let newProduct = req.body // con esto toda la info del body pasa a la variable
-        newProduct.id = crypto.randomUUID() // de esta manera agregapor por parte lo q nos falta
-        newProduct.avatar= req.file?.filename || "default.png", // como el id y avatar*/
-      /*  const newUser = {
-            id: crypto.randomUUID(),
-            avatar:req.file?.filename || "default.png",  
-            ...req.body
-        };
-          // los nombres de los input q sean iguales a la de la base de datos
-        //users.push(newUser); 
-        
-        bcrypt.hash(req.body.contrasena, 10, (err, hashedPassword) => {
-            if (err) {
-                console.error('Error al cifrar la contraseña:', err);
-                res.redirect('/users/register'); // Manejar el error de cifrado
-            } else {
-                const newUser = {
-                    id: crypto.randomUUID(),
-                    avatar: req.file?.filename || "default.png",
-                    ...req.body,
-                    password: hashedPassword // Guardar la contraseña cifrada
-                };
-
-                // los nombres de los input q sean iguales a la de la base de datos
-                users.push(newUser);
-
-                fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-
-                res.redirect('/');
-            }
-        });
-       
-      
-    }, */
     /* -----------------------BASE DE DATO -------------------------------- */
     processRegister: async function(req, res) { // Procesar el registro de usuario
-        
+        const errors = validationResult(req);
        /*  bcrypt.hash(req.body.contrasena, 10, (err, hashedPassword) => { */
-           
+       if (errors.isEmpty()) {
                 try{
-                const hashedPassword = await bcrypt.hash(req.body.contrasena, 10);
+                   // console.log("Datos recibidos en req.body:", req.body);
+                const hashedPassword = await bcrypt.hash(req.body.password, 10);
                  try{
-                 await db.User.create({
-                    user_name: req.body.nombre,
-                    user_lastname: req.body.apellido,
-                    user_email: req.body.correo,
-                    user_password: hashedPassword,
-                    user_adress: req.body.direccion || null,
-                    user_category: req.body.user_category || 'usr',
-                    user_image: req.file?.filename || "default.png",
+                  await db.User.create({
+                    name: req.body.name,
+                    lastname: req.body.lastname,
+                    user: req.body.user,
+                    password: hashedPassword,
+                    email: req.body.email,
+                    image: req.file?.filename || "default.png", 
+                    country: req.body.country,
+                    address: req.body.address || "san salvador de jujuy",
+                    phone: req.body.phone || null,
+                                       
                 });
                 // los nombres de los input q sean iguales a la de la base de datos
                
+                
+                return res.redirect('/users/login');
 
-                res.redirect('/'); 
             }catch(dbError){
                               
                 console.error('Error al crear el usuario en la base de datos:', dbError);
@@ -95,7 +62,12 @@ const controller = {
                 console.error('Error al cifrar la contraseña:', hashError);
                 res.redirect('/users/register'); // Manejar el error de cifrado
             }  
- 
+        } else {
+            console.log('Hay errores');
+            return res.render('register', {
+                errors: errors.errors
+            });
+        }
     },
     // Procesar el inicio de sesión
     processLogin: (req, res) => {
@@ -106,10 +78,10 @@ const controller = {
                 where: {
                     [Op.and]:[
                         {
-                            user_email : req.body.user_email
+                            email : req.body.email
                         },
                         {
-                            user_password : req.body.user_password
+                            password : req.body.password
                         }
                     ]}
             }).then(function(usuario) {

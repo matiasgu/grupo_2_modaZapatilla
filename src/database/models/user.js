@@ -8,42 +8,56 @@ const { update } = require('../../controllers/productsController');
 module.exports = (sequelize, DataTypes) => {
     let alias = "User";  // esto debería estar en singular
     let cols = {
-        user_id: {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             allowNull: false,
             autoIncrement: true,
         },
-        user_name: {
+        name: {
+            type: DataTypes.STRING(50),
+            allowNull: false, // no permite null
+        },
+        lastname: {
             type: DataTypes.STRING(50),
             allowNull: false,
         },
-        user_lastname: {
+        user: {
             type: DataTypes.STRING(50),
             allowNull: false,
         },
-        user_email: {
+        password: {
+            type: DataTypes.STRING(200),
+            allowNull: false,
+        },
+        email: {
             type: DataTypes.STRING(50),
             allowNull: false,
         },
-        user_password: {
-            type: DataTypes.STRING(10),
-            allowNull: false,
-        },
-        user_adress: {
-            type: DataTypes.STRING(50),
-            allowNull: true,
-            defaultValue: null,//por defecto null
-        },
-        user_category: {
-            type: DataTypes.STRING(8),
-            allowNull: false,
-        },
-        user_image: {
-            type: DataTypes.STRING(30),
+        image: {
+            type: DataTypes.STRING(200),
             allowNull: true,
             defaultValue: null,
-        }
+        },
+        country: {
+            type: DataTypes.STRING(50),
+            allowNull: false,
+        },
+        address: {
+            type: DataTypes.STRING(200),
+            allowNull: true,
+            defaultValue: null,
+        },
+        phone: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+            defaultValue: null,
+        },
+        role_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 1
+        } 
     };
     let config = {
         tableName : "users",
@@ -51,7 +65,7 @@ module.exports = (sequelize, DataTypes) => {
         createdAt: 'created_at',
         updatedAt: 'updated_at',
         deletedAt: 'deleted_at',
-        paranoid: true
+        paranoid: true // borrado suave
     }
 
     const User = sequelize.define(alias, cols, config);

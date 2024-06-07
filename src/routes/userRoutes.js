@@ -45,7 +45,7 @@ const verificarUsuarioLogueado = (req, res, next) => {
 // Formulario de registro
 router.get('/register', verificarUsuarioLogueado, usersController.register);
 // Procesar el registro
-router.post('/register', verificarUsuarioLogueado, upload.single('avatar'), usersController.processRegister);
+router.post('/register', verificarUsuarioLogueado, upload.single('image'), usersController.processRegister);
 
 // Formulario de login
 router.get('/login', verificarUsuarioLogueado, usersController.login);
