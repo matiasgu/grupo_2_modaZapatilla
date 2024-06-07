@@ -106,7 +106,7 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
-    gap: 25px;
+    padding: 15px;
 
 }
 .productos{
@@ -122,7 +122,7 @@ main{
     transition: all 450ms;
 }
 .producto-imagen{
-    width: 100px;
+    width: 200px;
     
     border-bottom: solid 1px #ebebeb;
     margin: auto;
@@ -140,9 +140,9 @@ main{
 .precios{
     font-size: 18px;
     margin-bottom: 15px;
-    font-size: 16px;
+
     margin-bottom: 15px;
-    color: #666;
+    color: #43b91f;
     transition: all 450ms;
 }
 .fa-cart-plus{
