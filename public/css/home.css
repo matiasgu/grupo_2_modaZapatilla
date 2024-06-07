@@ -116,9 +116,9 @@ main{
     background-color: white;
     width: 250px;
     border: solid 1px #ebebeb;
-    margin: auto;
+    /*margin: auto;
     margin-bottom: 25px;
-    border-radius: 10px;
+    border-radius: 10px;*/
     transition: all 450ms;
 }
 .producto-imagen{
