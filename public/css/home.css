@@ -114,7 +114,7 @@ main{
     position: relative;
     flex-direction: column;
     background-color: white;
-    width: 250px;
+    width: 300px;
     border: solid 1px #ebebeb;
     /*margin: auto;
     margin-bottom: 25px;
@@ -122,7 +122,7 @@ main{
     transition: all 450ms;
 }
 .producto-imagen{
-    width: 200px;
+    width: 250px;
     
     border-bottom: solid 1px #ebebeb;
     margin: auto;
@@ -134,8 +134,9 @@ main{
     padding: 0 15px 0 15px;
 }
 .titulo{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bolder;
+    justify-content: center;
 }
 .precios{
     font-size: 18px;
