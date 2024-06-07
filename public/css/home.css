@@ -102,17 +102,19 @@ main{
     justify-content: center;
 }
 .contenedor-productos{
-    padding: 15px;
+    align-content: flex-start;
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
-    margin-top: 4px;
+    gap: 5px;
 
 }
 .productos{
-    display: block;
+    display: flex;
+    position: relative;
+    flex-direction: column;
     background-color: white;
-    width: 100%;
+    width: 250px;
     border: solid 1px #ebebeb;
     margin: auto;
     margin-bottom: 25px;
@@ -120,7 +122,7 @@ main{
     transition: all 450ms;
 }
 .producto-imagen{
-    width: 100%;
+    width: 100px;
     
     border-bottom: solid 1px #ebebeb;
     margin: auto;
