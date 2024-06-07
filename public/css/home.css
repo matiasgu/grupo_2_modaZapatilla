@@ -115,10 +115,10 @@ main{
     flex-direction: column;
     background-color: white;
     width: 300px;
-    border: solid 1px #ebebeb;
-    /*margin: auto;
+    border: solid 5px #7d16b9;
+    margin: auto;
     margin-bottom: 25px;
-    border-radius: 10px;*/
+    border-radius: 10px;
     transition: all 450ms;
 }
 .producto-imagen{
@@ -135,13 +135,13 @@ main{
 }
 .titulo{
     font-size: 15px;
-    font-weight: bolder;
+    
     justify-content: center;
 }
 .precios{
     font-size: 18px;
     margin-bottom: 15px;
-
+    font-weight: bolder;
     margin-bottom: 15px;
     color: #43b91f;
     transition: all 450ms;
