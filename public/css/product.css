@@ -5,12 +5,13 @@ main{
 }
 
 /*====== Products ======*/
-.products-wrapper {
+  .products-wrapper {
     margin-top: 30px;
     margin-bottom: 30px;
   }
   
   .products-title {
+    font-weight: bold;
     font-size: 2.4em;
     font-weight: 400;
     color: var(--gray);
@@ -95,6 +96,17 @@ main{
     box-shadow: 0 0 5px var(--green);
   }
   
+  .product-envio {
+    display: block;
+    color: #004853;
+    font-weight: bold
+  }
+
+  .h2-informacion {
+      color: #333333; /* Gris oscuro */
+      font-weight: bold; /* Negrita */
+      text-align: center; /* Centrado */
+  }
 /*
 section{
     width: 85%;
