@@ -106,7 +106,7 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
-    gap: 5px;
+    gap: 25px;
 
 }
 .productos{
