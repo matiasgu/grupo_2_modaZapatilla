@@ -6,7 +6,7 @@
     font-family: 'Barlow';
 }
 header{
-    background-color: #522c06a9;
+    background-color: #f63700;
     padding: 20px;
     width: 100vw;
     margin: auto;
@@ -184,7 +184,7 @@ main{
 
 /* footer */
 footer{
-    background-color: #522c06a9;
+    background-color: #f63700;
     padding: 20px;
     width: 100vw;
     margin: auto;
@@ -230,6 +230,7 @@ footer{
     border-radius: 1.5rem;
     height: 50px;
     border: none;
+    font-weight: bold; /* Negrita */
 }
 
 
