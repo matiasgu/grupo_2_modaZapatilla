@@ -16,7 +16,15 @@ main{
     margin-left: auto;
     max-width: unset;
   }
-  
+  contenedor {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .contenedor > div {
+    width: 50%;
+  }
+
   .products-title {
     font-weight: bold;
     font-size: 2.4em;
@@ -129,16 +137,24 @@ main{
 }
 .product-envio {
     display: block;
-    color: #004853;
+    color:#00b9bd;
     font-weight: bold
   }
 
-.h2-informacion {
+.h4-oferta {
+    color: #517878; /* Gris oscuro */
+    font-weight: bold; /* Negrita */
+    text-align: justify; /* Centrado */
+    text-transform: uppercase;
+}
+
+
+.h4-informacion {
     color: #333333; /* Gris oscuro */
     font-weight: bold; /* Negrita */
-    text-align: center; /* Centrado */
+    text-align: justify; /* Centrado */
 }
-.h2-informacion-mayuscula {
+.h4-informacion-mayuscula {
     color: #333333; /* Gris oscuro */
     font-weight: bold; /* Negrita */
     text-align: justify; /* Centrado */
