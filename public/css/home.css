@@ -165,7 +165,6 @@ main{
 .hombres-mujeres{
     display: flex;    
     flex-wrap: wrap;
-
 }
 .hombres-mujeres a{
     padding: 10px;
@@ -175,6 +174,24 @@ main{
     width: 100%;
     height: 100%;
     border-radius: 10px;
+}
+.ninos {
+    display: flex;    
+    flex-wrap: wrap;
+}
+
+.ninos a {
+    text-align: center;
+    padding: 10px;
+}
+
+.ninos a img {
+    width: 60%;
+    height: 100%;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .descuentos-promociones{
@@ -190,7 +207,7 @@ main{
 
 /* footer */
 footer{
-    background-color: #279BA1;
+    background-color:  #00f6f6;;
     padding: 20px;
     width: 100vw;
     margin: auto;

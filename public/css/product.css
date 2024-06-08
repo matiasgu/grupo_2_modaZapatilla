@@ -5,9 +5,16 @@ main{
 }
 
 /*====== Products ======*/
-  .products-wrapper {
+  .container products-wrapper {
+    display: flex;
     margin-top: 30px;
     margin-bottom: 30px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: unset;
   }
   
   .products-title {
@@ -31,6 +38,10 @@ main{
   
   .product-box_image {
     border-bottom: 1px solid var(--light-gray);
+    max-width: 100%; /* Hace que la imagen sea responsive y se ajuste al ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio extra generado por la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente en el contenedor */
   }
   
   .product-box_data {
@@ -95,18 +106,178 @@ main{
     transform: rotate(360deg);
     box-shadow: 0 0 5px var(--green);
   }
-  
-  .product-envio {
+.column {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    padding: 10px; /* Espacio interno dentro de las columnas */
+    border: 1px solid black; /* Borde opcional para visualización */
+}
+.row {
+    margin-right: -6px;
+    margin-left: -6px;
+}
+.row {
+    display: -ms-flexbox;
+    flex: 1;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.row-centered {
+  display: flex;
+  justify-content: center;
+}
+.product-envio {
     display: block;
     color: #004853;
     font-weight: bold
   }
 
-  .h2-informacion {
-      color: #333333; /* Gris oscuro */
-      font-weight: bold; /* Negrita */
-      text-align: center; /* Centrado */
-  }
+.h2-informacion {
+    color: #333333; /* Gris oscuro */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Centrado */
+}
+.h2-informacion-mayuscula {
+    color: #333333; /* Gris oscuro */
+    font-weight: bold; /* Negrita */
+    text-align: justify; /* Centrado */
+    text-transform: uppercase;
+}
+
+  /* de aqui empiezan las pruebas */
+  /*
+header~#maincontent .container.product-detail div.attributes ul.attribute-size {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin: .5rem -5px;
+}
+
+header~#maincontent .container.product-detail div.attributes ul div.variation-attribute-size-values {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: -5px;
+  margin-left: 2px;
+}
+
+
+header~#maincontent .container.product-detail div.attributes ul div.variation-attribute-size-values .variation-attribute-size {
+  border: 1px solid #121212;
+  border-radius: 3px;
+  width: 84px;
+  font-size: 18px;
+  height: 46px;
+  margin: 2px;
+  color: #121212;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 0 1 84px;
+  flex: 0 1 84px;
+}
+
+header~#maincontent .container.product-detail div.attributes ul div.variation-attribute-size-values .variation-attribute-size span {
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.wrapper .tooltip {
+  background: #dbdcda;
+  bottom: 100%;
+  color: #000;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 10px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  min-width: 95px;
+  max-width: 200px;
+  transform: translateY(10px);
+  transition: all .1s ease-out;
+  -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, .28);
+  -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, .28);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, .28);
+}
+.vfr__container {
+  width: 100%;
+  margin-left: 0px;
+  margin-top: 5%;
+  margin-bottom: -2%;
+}
+
+.szb-vfr-btns {
+  display: flex;
+  flex-direction: row;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+  cursor: pointer;
+}*/
+/* Estilos para la lista de tamaños */
+.variation-attribute-size {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.variation-attribute-size.selected {
+  border: 2px solid blue;
+  padding: 8px;
+  margin: 4px;
+}
+
+/* Estilos para la información de tamaños dentro del tooltip */
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Estilos para el botón de Probador Virtual */
+.vfr__button--clean {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos para el botón de Tabla de talles */
+#szb-chart-button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*hasta aqui*/
+
+  @media screen and (max-width: 768px) {
+    .col, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-9, .col-10, .col-11, .col-12, .col-auto, .col-lg, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-auto, .col-md, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md-auto, .col-sm, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-auto {
+        position: relative;
+        width: 100%;
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+}
 /*
 section{
     width: 85%;

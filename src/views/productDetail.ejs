@@ -6,10 +6,11 @@
     <%- include('partials/header') %>
 	<!-- todos los productos -->
 	<div class="container products-wrapper">
-		<div class="row">
+		<div class="column">
 			<div class="col-12">
 				<h2 class="products-title"><%= producto.product_name%> </h2>
 			</div>
+			<!-- todos los productos -->
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<figure class="product-box_image">
@@ -19,8 +20,10 @@
 						ENVIO GRATIS
 					</span>
 					<article class="product-box_data">
-						<p><h3 class="h2-informacion">PRECIO FINAL ARG$ <%= producto.product_price%> <h2></p>
-						<p><h3 class="h2-informacion">MARCA <%= producto.product_brand%></h4></p>
+						<span>
+							<p><h4 class="h2-informacion">PRECIO FINAL ARG $ <%= producto.product_price%> <h4></p>
+						</span>
+						<p><h4 class="h2-informacion-mayuscula">MARCA <%= producto.product_brand%></h4></p>
 						<%if (producto.product_discount !== null) { %>
 							<p><h3>Super Oferta <%= producto.product_discount%>%</h3></p>
 						<% } %>
@@ -28,19 +31,322 @@
 					</article>
 					<p>
 						<a href="/shopCarts/addCarrito/">
-                            <button class="add-to-cart-btn" type="button"> AGREGAR AL CARRITO</button>
-                        </a>    
+							<button class="add-to-cart-btn" type="button"> AGREGAR AL CARRITO</button>
+						</a>    
 					</p>
-					<p>
+					<!-- <p>
 							<p> <a class="botonCrear" href="/products/create/">CREAR PRODUCTO</a></p>
 							<p> <a class="botonEditar" href="/products/edit/<%= producto.product_id%>">EDITAR</a></p>					
 							<a  class="botonVolver" href="/">ATRAS</a>
-					</p>
+					</p> -->
 				</section>
 			</div>
+			<!-- SELECCION TALLES -->
+			<div class="column">
+				<div class="col-12">
+					<label class="size" for="size-1">
+						Seleccionar
+					</label>
+					<ul class="select-size attribute-size" value="" id="size">
+						<div class="variation-attribute-size-values" value="">
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-value="37.5" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 6</div>
+											
+												<div>UK : 5.5</div>
+											
+												<div>EU : 38.5</div>
+											
+										</div>
+									
+									<span class="variationID">37.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="38/38.5" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 6.5</div>
+											
+												<div>UK : 6</div>
+											
+												<div>EU : 39</div>
+											
+										</div>
+									
+									<span class="variationID">38/38.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="39" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 7</div>
+											
+												<div>UK : 6</div>
+											
+												<div>EU : 40</div>
+											
+										</div>
+									
+									<span class="variationID">39</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="39.5" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 7.5</div>
+											
+												<div>UK : 6.5</div>
+											
+												<div>EU : 40.5</div>
+											
+										</div>
+									
+									<span class="variationID">39.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="40/40.5" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 8</div>
+											
+												<div>UK : 7</div>
+											
+												<div>EU : 41</div>
+											
+										</div>
+									
+									<span class="variationID">40/40.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper" value="https://www.stockcenter.com.ar/on/demandware.store/Sites-StockCenter-Site/default/Product-Variation?dwvar_NIDC3728-003_size=41&amp;pid=NIDC3728-003&amp;quantity=1" data-attr-value="41">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 8.5</div>
+											
+												<div>UK : 7.5</div>
+											
+												<div>EU : 42</div>
+											
+										</div>
+									
+									<span class="variationID">41</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="41.5" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 9</div>
+											
+												<div>UK : 8</div>
+											
+												<div>EU : 42.5</div>
+											
+										</div>
+									
+									<span class="variationID">41.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="42/42.5" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 9.5</div>
+											
+												<div>UK : 8.5</div>
+											
+												<div>EU : 43</div>
+											
+										</div>
+									
+									<span class="variationID">42/42.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper" value="https://www.stockcenter.com.ar/on/demandware.store/Sites-StockCenter-Site/default/Product-Variation?dwvar_NIDC3728-003_size=43&amp;pid=NIDC3728-003&amp;quantity=1" data-attr-value="43">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 10</div>
+											
+												<div>UK : 9</div>
+											
+												<div>EU : 44</div>
+											
+										</div>
+									
+									<span class="variationID">43</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper" value="https://www.stockcenter.com.ar/on/demandware.store/Sites-StockCenter-Site/default/Product-Variation?dwvar_NIDC3728-003_size=43.5&amp;pid=NIDC3728-003&amp;quantity=1" data-attr-value="43.5">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 10.5</div>
+											
+												<div>UK : 9.5</div>
+											
+												<div>EU : 44.5</div>
+											
+										</div>
+									
+									<span class="variationID">43.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="44" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 11</div>
+											
+												<div>UK : 10</div>
+											
+												<div>EU : 45</div>
+											
+										</div>
+									
+									<span class="variationID">44</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="44.5" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 11.5</div>
+											
+												<div>UK : 10.5</div>
+											
+												<div>EU : 45.5</div>
+											
+										</div>
+									
+									<span class="variationID">44.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper" value="https://www.stockcenter.com.ar/on/demandware.store/Sites-StockCenter-Site/default/Product-Variation?dwvar_NIDC3728-003_size=45%2F45.5&amp;pid=NIDC3728-003&amp;quantity=1" data-attr-value="45/45.5">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 12</div>
+											
+												<div>UK : 11</div>
+											
+												<div>EU : 46</div>
+											
+										</div>
+									
+									<span class="variationID">45/45.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="46" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 12.5</div>
+											
+												<div>UK : 11.5</div>
+											
+												<div>EU : 47</div>
+											
+										</div>
+									
+									<span class="variationID">46</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="46.5" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 13</div>
+											
+												<div>UK : 12</div>
+											
+												<div>EU : 47.5</div>
+											
+										</div>
+									
+									<span class="variationID">46.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="47.5" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 14</div>
+											
+												<div>UK : 13</div>
+											
+												<div>EU : 48.5</div>
+											
+										</div>
+									
+									<span class="variationID">47.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+							
+								<li class="variation-attribute-size wrapper disabled" value="null" data-attr-value="48.5" disabled="disabled">
+									
+										
+										<div class="tooltip">
+											
+												<div>US : 15</div>
+											
+												<div>UK : 14</div>
+											
+												<div>EU : 49.5</div>
+											
+										</div>
+									
+									<span class="variationID">48.5</span>
+									<input type="hidden" id="uniqueSize" value="17">
+								</li>
+						</div>
+					</ul>
+				</div>
+			</div>	
+			<!-- /SELECCION TALLES -->
 		</div>
+		<!-- /todos los productos -->
 	</div>
-	<!-- /todos los productos -->
+
 
     <!--Pie de pagina-->
     <%- include('partials/footer') %>
