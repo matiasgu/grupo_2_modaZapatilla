@@ -26,6 +26,12 @@ let cols = {
     },
     product_img: {
         type: dataTypes.STRING
+    },
+    product_stock: {
+        type: dataTypes.INTEGER
+    },
+    product_size: {
+        type: dataTypes.INTEGER
     }
 };
 let config = {

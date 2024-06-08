@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-06-2024 a las 14:49:42
+-- Tiempo de generación: 08-06-2024 a las 02:30:59
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -48,8 +48,31 @@ CREATE TABLE `products` (
   `product_category` varchar(50) NOT NULL,
   `product_price` float NOT NULL,
   `product_discount` int(3) DEFAULT NULL,
-  `product_img` varchar(30) DEFAULT NULL
+  `product_img` varchar(30) DEFAULT NULL,
+  `product_stock` int(11) DEFAULT NULL,
+  `product_size` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `products`
+--
+
+INSERT INTO `products` (`product_id`, `product_name`, `product_brand`, `product_detail`, `product_category`, `product_price`, `product_discount`, `product_img`, `product_stock`, `product_size`) VALUES
+(1, 'Zapatillas Nike Star Runner 3', 'nike', NULL, 'kids', 70890.6, 20, '01-zapatillas_nike_kids', 48, NULL),
+(2, 'Zapatillas adidas Runfalcon 3.0 Hombre', 'adidas', NULL, 'man', 85492.2, NULL, '02_zapatillas_run_adidas_man', 24, NULL),
+(3, 'Zapatillas Puma Caven 2.0', 'puma', NULL, 'unisex', 62708.4, NULL, '03_zapatillas_adidas_unisex', 54, NULL),
+(4, 'Zapatillas Nike Air Max Sc Mujer', 'nike', NULL, 'woman', 125482, 10, '04-zatillas_nilke_woman', 54, NULL),
+(5, 'Zapatillas Nike Borough Low Recraft', 'nike', NULL, 'kids', 78798, 10, '05-zapatillas_nike_kids', 54, NULL),
+(6, 'Zapatillas Puma Rebound Layup', 'puma', NULL, 'kids', 80994, NULL, '06-zapatillas_puma_kids', 45, NULL),
+(7, 'Zapatillas adidas Advantage', 'adidas', NULL, 'kids', 102101, 20, '07-zapatillas_adidas_kids', 85, NULL),
+(8, 'Zapatillas Running Nike Juniper Trail 2', 'adidas', NULL, 'man', 148976, 5, '08_zapatillas_run_adidas_man', 84, NULL),
+(9, 'Zapatillas Nike Waffle Debut Se Hombre', 'nike', NULL, 'man', 164211, 10, '09-zapatillas_nike_man', 88, NULL),
+(10, 'Zapatillas Nike Air Max Excee', 'nike', NULL, 'woman', 180458, NULL, '10-zapatillas_nike_woman', 58, NULL),
+(11, 'Zapatillas Running adidas Duramo Speed', 'adidas', NULL, 'woman', 75849.4, 5, '11-zapatillas_adidas_woman', 78, NULL),
+(12, 'Zapatillas Running Puma Pwr Xx Nitro', 'puma', NULL, 'woman', 54785, NULL, '12-zapatillas_adidas_woman', 57, NULL),
+(13, 'Zapatillas Puma X-ray Tour', 'puma', NULL, 'unisex', 75975.2, 20, '13_zapatillas_puma_unisex', 47, NULL),
+(14, 'Zapatillas adidas Grand Court Lifestyle', 'puma', NULL, 'unisex', 64757, 15, '14_zapatillas_adidas_unisex', 87, NULL),
+(15, 'Zapatillas Nike Revolution 6', 'nike', NULL, 'unisex', 91000, NULL, '15_zapatillas_nike_unisex', 54, NULL);
 
 -- --------------------------------------------------------
 
@@ -61,6 +84,14 @@ CREATE TABLE `roles` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`) VALUES
+(1, 'adm'),
+(2, 'cliente');
 
 -- --------------------------------------------------------
 
@@ -97,6 +128,17 @@ CREATE TABLE `users` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `lastname`, `user`, `password`, `email`, `image`, `country`, `address`, `phone`, `role_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Pepito', 'Perez', 'pepi', '12345678', 'pepito@gmail.com', '01-Perez', 'Argentina', NULL, '156584955', 1, '2024-06-08 00:30:26', '2024-06-08 00:30:26', NULL),
+(2, 'Mario', 'Bross', 'mario', '12345678', 'mario@gmail.com', '02-Mario', 'Argentina', NULL, '215413323', 2, '2024-06-08 00:30:26', '2024-06-08 00:30:26', NULL),
+(3, 'Homero', 'Simpson', 'homero', '12345678', 'homero@gmail.com', '03-Homero', 'Argentina', NULL, '545545225', 2, '2024-06-08 00:30:26', '2024-06-08 00:30:26', NULL),
+(4, 'Merlina', 'Adams', 'mer', '12345678', 'mer@gmail.com', '04-Merlina', 'Argentina', NULL, '645152124', 2, '2024-06-08 00:30:26', '2024-06-08 00:30:26', NULL),
+(5, 'Arenita', 'Mejillas', 'arenita', '12345678', 'arenita@gmail.com', '05-Arenita', 'Argentina', NULL, '154455224', 2, '2024-06-08 00:30:26', '2024-06-08 00:30:26', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -150,13 +192,13 @@ ALTER TABLE `cartproducts`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `product_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `shopcarts`
@@ -168,7 +210,7 @@ ALTER TABLE `shopcarts`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
