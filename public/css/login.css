@@ -76,3 +76,10 @@ input,textarea {
     justify-content: space-between;
     margin-top: 20px;
 }
+.recordar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0px 15px 0px;
+    color: black;
+}

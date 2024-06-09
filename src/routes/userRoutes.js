@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const { check, validationResult } = require('express-validator');
-
+const db = require('../database/models');
 /******** MULTER Configuracion ************/
 
 const storage = multer.diskStorage({
@@ -57,7 +57,10 @@ let validateUser = [
     check('user').notEmpty().withMessage('Debes ingresar tu nombre de usuario'),
     check('password')
         .notEmpty().withMessage('Debes ingresar una contraseña').bail()
-        .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 4 caracteres'),
+        .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 4 caracteres')
+        /* .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/)
+        .withMessage('La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial') */
+        ,
     /* check('confirmPassword')
         .notEmpty().withMessage('Debes repetir la contraseña').bail()
         .custom((value, { req }) => {
@@ -83,7 +86,14 @@ let validateUser = [
         }),
     check('email')
         .notEmpty().withMessage('Debes ingresar un email').bail()
-        .isEmail().withMessage('Debes ingresar un email válido'),
+        .isEmail().withMessage('Debes ingresar un email válido').bail()
+        .custom(async (value) => {
+            const user = await db.User.findOne({ where: { email: value } });
+            if (user) {
+                throw new Error('Este email ya está registrado');
+            }
+            return true;
+        }),
     check('country').notEmpty().withMessage('Debes seleccionar un país'),
     check('acepto-terminos').equals('on').withMessage('Debes aceptar los términos y condiciones')
 ];
@@ -96,6 +106,9 @@ router.post('/register', verificarUsuarioLogueado, upload.single('image'),valida
 router.get('/login', verificarUsuarioLogueado, usersController.login);
 // Procesar el login
 router.post('/login', verificarUsuarioLogueado,validateUserLogin, usersController.processLogin);
+
+router.get('/profile', usersController.profile);
+router.get('/logout', usersController.logout);
 
 //Usuario Logueado
 router.get('/check', function (req, res) {
