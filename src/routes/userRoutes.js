@@ -48,7 +48,7 @@ let validateUserLogin = [
         .isEmail().withMessage('Debes ingresar un email válido'),
     check('password')
         .notEmpty().withMessage('Debes ingresar una contraseña').bail()
-        .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 8 caracteres'),
+        .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 4 caracteres'),
 ];
 /******** middleware para register ************/
 let validateUser = [
