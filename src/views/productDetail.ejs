@@ -39,11 +39,6 @@
 					<p><h3 class="h4-oferta">Super Oferta <%= producto.product_discount%>%</h3></p>
 				<% } %>
 			</article>
-		<p>
-			<a href="/shopCarts/addCarrito/">
-				<button class="add-to-cart-btn" type="button"> AGREGAR AL CARRITO</button>
-			</a>    
-		</p>
 		<!-- SELECCION TALLES -->
 			<div class="col-12">
 				<label class="size" for="size-1">
@@ -97,8 +92,22 @@
 							</li>
 					</div>
 				</ul>
+				<!-- SELECCION TALLES -->
+				<p>
+					<!-- <a href="/shopCarts/addCarrito/"> -->
+					<button class="add-to-cart-btn" onclick="agregarProducto('product')" type="button"> AGREGAR AL CARRITO</button>
+					<!-- </a>     -->
+				</p>
+				<!-- Contenedor de la ventana emergente -->
+				<div id="ventanaEmergente" style="display: none;">
+					<h2>Mi Carrito de compras</h2>
+					<ul id="carrito"></ul>
+					<a href="/shopCarts/addCarrito/"> 
+						<button class="button-ventana-emergente" id="btn-opc-comprar">COMPRAR</button>
+					</a> 
+					<button class="button-ventana-emergente" id="btn-opc-cancelar">CANCELAR</button>
+				</div>
 			</div>
-		<!-- SELECCION TALLES -->
 		</div>	
 	</div>
 
