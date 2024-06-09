@@ -31,8 +31,12 @@ const controller = {
     processRegister: async function(req, res) { // Procesar el registro de usuario
         const errors = validationResult(req);
        /*  bcrypt.hash(req.body.contrasena, 10, (err, hashedPassword) => { */
+        
        if (errors.isEmpty()) {
+ 
+
                 try{
+                    
                    // console.log("Datos recibidos en req.body:", req.body);
                 const hashedPassword = await bcrypt.hash(req.body.password, 10);
          
