@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <%- include('../partials/head') %>
-
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <body>
         <!-- encabezado -->
         <%- include('../partials/header') %>
@@ -13,6 +13,7 @@
                         <!-- Campo: Nombre -->
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="name" name="name" placeholder="Ej: Juan Jose" 
+                        <% if (locals.errors && errors.name ) { %> class="form-control is-invalid" <% } %>
                         value="<%= locals.oldData ? oldData.name : null %>">
                 <% if (locals.errors && errors.name) { %>
                     <div class="text-danger">
