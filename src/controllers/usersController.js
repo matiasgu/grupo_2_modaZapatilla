@@ -1,7 +1,7 @@
 const fs = require('fs'); /* hola */
 const path = require('path');
 const crypto = require('crypto');
-const { check, validationResult, body } = require('express-validator');
+const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 
 const usersFilePath = path.join(__dirname, '../models/usersData.json');
@@ -35,7 +35,8 @@ const controller = {
                 try{
                    // console.log("Datos recibidos en req.body:", req.body);
                 const hashedPassword = await bcrypt.hash(req.body.password, 10);
-                 try{
+         
+                try{
                   await db.User.create({
                     name: req.body.name,
                     lastname: req.body.lastname,
@@ -60,12 +61,13 @@ const controller = {
              }
             } catch (hashError){
                 console.error('Error al cifrar la contraseña:', hashError);
-                res.redirect('/users/register'); // Manejar el error de cifrado
-            }  
+                return  res.redirect('/users/register'); // Manejar el error de cifrado
+            } 
         } else {
-            console.log('Hay errores');
-            return res.render('register', {
-                errors: errors.errors
+            /* console.log('Hay errores'); */
+            return res.render('users/register', {
+                errors: errors.mapped(),
+                oldData: req.body
             });
         }
     },
@@ -73,6 +75,13 @@ const controller = {
     
     processLogin: async(req, res) => {
         let errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            return res.render('users/login', {
+                errors: errors.mapped(),
+                oldData: req.body
+            });
+        }
         // Busca al usuario por el campo 'email'
         let userToLogin = await User.findOne({ where: { email: req.body.email } });
 
@@ -93,12 +102,19 @@ const controller = {
         return res.redirect('/');
     } else {
         // Si la autenticación falla, renderiza la vista de login con errores y datos antiguos
-        return res.render('login', { errors: errors.mapped(), oldData: req.body });
+        return res.render('users/login', {
+            errors: {
+                email: {
+                    msg: 'Credenciales inválidas'
+                }
+            },
+            oldData: req.body
+        });
     }
 },
 profile: (req, res) => {
     // Renderiza la vista 'userProfile' y pasa el usuario logueado como variable
-    return res.render('userProfile', { user: req.session.userLogged });
+    return res.render('users/Profile', { user: req.session.userLogged });
 },
 logout: (req, res) => {
     // Borra la cookie 'userEmail'

@@ -9,7 +9,7 @@
     <main>
         <section id="login-usuario"> <!-- cargar-producto -->
             <h2>Ingresar</h2>
-            <%if (typeof errors != 'undefined') {%>
+            <%if (typeof errors != 'undefined') {%> <!-- mensaje de error en rojo -->
                 <p style = "color: red"> ERROR </p>
                 <u1>
                     <% for (let i = 0; i > errors.length; i++){%>
@@ -24,12 +24,25 @@
                
                 <!-- Campo: Correo -->
                 <label for="correo">Correo:</label>
-                <input type="email" id="email" name="email" placeholder="Ej: juanperez@gmail.com" required>
-               
+                <input type="text" id="email" name="email" placeholder="Ej: juanperez@gmail.com" 
+                
+                value="<%= locals.oldData ? oldData.email : null %>" 
+                >
+                <% if (locals.errors && errors.email) { %>
+                    <div class="text-danger">
+                        <%= errors.email.msg %>
+                    </div>
+                <% } %>
                 <!-- Campo: Contraseña -->
                 <label for="contrasena">Contraseña:</label>
-                <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+                <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
                 
+                >
+                <% if (locals.errors && errors.password) { %>
+                    <div class="text-danger">
+                        <%= errors.password.msg %>
+                    </div>
+                <% } %>
                 <!-- Checkbox: Aceptar términos y condiciones -->
                 
                 <!-- Botón: Registrarme -->
