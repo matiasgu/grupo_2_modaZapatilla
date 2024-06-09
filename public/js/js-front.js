@@ -36,7 +36,7 @@ function toggleVentanaEmergente(producto) {
     }
   }
 
-  function agregarProducto(producto) {
+  function agregarProducto({producto}) {
     let carrito = document.getElementById('carrito');
     let li = document.createElement('li');
     li.textContent = producto;
