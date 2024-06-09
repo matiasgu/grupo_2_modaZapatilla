@@ -58,10 +58,25 @@ let validateUser = [
     check('password')
         .notEmpty().withMessage('Debes ingresar una contraseña').bail()
         .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 4 caracteres'),
-    check('confirmPassword')
+    /* check('confirmPassword')
         .notEmpty().withMessage('Debes repetir la contraseña').bail()
         .custom((value, { req }) => {
             if (value !== req.body.password) {
+                throw new Error('Las contraseñas no coinciden');
+            }
+            return true;
+        }), */
+        check('confirmPassword')
+        /* .optional({ checkFalsy: true }) */
+        .custom((value, { req }) => {
+            const password = req.body.password;
+            if (password && !value) {
+                throw new Error('Debes repetir la contraseña');
+            }
+            if (!password && value) {
+                throw new Error('Tienes que llenar el campo de arriba para comparar');
+            }
+            if (password && value && password !== value) {
                 throw new Error('Las contraseñas no coinciden');
             }
             return true;

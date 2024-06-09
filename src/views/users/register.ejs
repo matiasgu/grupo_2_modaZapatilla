@@ -24,6 +24,7 @@
                         <!-- Campo: Apellido -->
                         <label for="apellido">Apellido:</label>
                         <input type="text" id="lastname" name="lastname" placeholder="Ej: Perez" 
+                        <% if (locals.errors && errors.lastname ) { %> class="form-control is-invalid" <% } %>
                         value="<%= locals.oldData ? oldData.lastname : '' %>">
                 <% if (locals.errors && errors.lastname) { %>
                     <div class="text-danger">
@@ -34,6 +35,7 @@
                         <!-- Campo: Usuario -->
                         <label for="usuario">Nombre de usuari@:</label>
                         <input type="text" id="user" name="user" placeholder="Nombre de usuario" 
+                        <% if (locals.errors && errors.user ) { %> class="form-control is-invalid" <% } %>
                         value="<%= locals.oldData ? oldData.user : '' %>">
                 <% if (locals.errors && errors.user) { %>
                     <div class="text-danger">
@@ -43,7 +45,10 @@
                         
                         <!-- Campo: Contraseña -->
                         <label for="contrasena">Contraseña:</label>
-                        <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" >
+                        <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" 
+                        <% if (locals.errors && errors.password ) { %> class="form-control is-invalid" <% } %>
+                        value="<%= locals.oldData ? oldData.password : null %>"
+                        >
                         <% if (locals.errors && errors.password) { %>
                             <div class="text-danger">
                                 <%= errors.password.msg %>
@@ -52,15 +57,19 @@
                         <!-- Campo: Confirmar Contraseña -->
                         <label for="confirmar-contrasena">Confirmar Contraseña:</label>
                         <input type="password" id="confirmPassword" name="confirmPassword"
-                            placeholder="Confirme su contraseña" >
-                           <!--  <% if (locals.errors && errors.confirmPassword) { %>
+                            placeholder="Confirme su contraseña" 
+                            <% if (locals.errors && errors.confirmPassword ) { %> class="form-control is-invalid" <% } %>
+                            value="<%= locals.oldData ? oldData.confirmPassword : null %>"
+                            >
+                             <% if (locals.errors && errors.confirmPassword) { %>
                                 <div class="text-danger">
                                     <%= errors.confirmPassword.msg %>
                                 </div>
-                            <% } %> -->
+                            <% } %> 
                         <!-- Campo: Correo -->
                         <label for="correo">Correo:</label>
                         <input type="text" id="email" name="email" placeholder="Ej: juanperez@gmail.com" 
+                        <% if (locals.errors && errors.email ) { %> class="form-control is-invalid" <% } %>
                         value="<%= locals.oldData ? oldData.email : null %>">
 							
 								<% if (locals.errors && errors.email) { %>
@@ -79,7 +88,7 @@
                         <label>País de nacimiento:</label>
 								<select 
 									name="country" 
-									class="form-select <%= locals.errors && errors.country ? 'is-invalid' : null %>"
+									<% if (locals.errors && errors.country ) { %> class="form-control is-invalid" <% } %>
 								>
 									<option value="">Elegí un país</option>
 									<%  
@@ -109,7 +118,9 @@
 
                         <!-- Checkbox: Aceptar términos y condiciones -->
                         <label>
-                            <input type="checkbox" id="acepto-terminos" name="acepto-terminos" >
+                            <input type="checkbox" id="acepto-terminos" name="acepto-terminos" 
+                            
+                            >
                             Acepto las políticas de privacidad y términos y condiciones
                         </label>
                         <% if (locals.errors && errors['acepto-terminos']) { %>
