@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+/* Estilos para los rectángulos */
+.panel {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  transition: background-color 0.3s ease; /* Transición de color al pasar el ratón */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.panel:hover {
+  background-color: #f2f2f2; /* Cambio de color al pasar el ratón */
+}
+
+.panel h2 {
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.panel p {
+  margin-top: 0;
+  color: #666666;
+}
+
+/* Estilos para las tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333333;
+}
+
+/* Estilos para el encabezado */
+header {
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #bfe6ff; /* Color celeste para el encabezado */
+  padding: 10px; /* Ajuste del espaciado interno */
+  border-radius: 8px; /* Borde redondeado */
+}
+
+header h1 {
+  color: #333333;
+}
+
+/* Estilos para la navegación */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333333;
+}
+
+nav ul li a:hover {
+  color: #007bff;
 }
