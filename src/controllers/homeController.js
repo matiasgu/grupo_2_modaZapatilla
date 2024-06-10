@@ -114,16 +114,21 @@ const controller = {
         req.session.numeroVisitas ++;
         res.send('VISITA NRO: ' + req.session.numeroVisitas);
     },
-
-    sessionAdm: (req, res) => {
-		db.Productos.findAll()
-		.then(function(productos) {
-			res.render('homeAdm',{
-				productos: productos,
-				usuario: req.session.usuarioLogueado
-			});
-		})
-    }
+	adm: (req, res) => {
+		/*Do the magic
+			/*Codigo sin DB
+			const allProducts = products;
+			res.render('home',{
+				productos: allProducts
+			})
+			*/
+			db.Productos.findAll()
+			.then(function(productos) {
+				res.render('homeAdm',{
+					productos: productos,
+				});
+			})
+	},
 	/*
 	    controlSession: (req, res) => {
         if(req.session.usuarioLogueado == undefined) {

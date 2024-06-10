@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('partials/head') %>
+<body>
+    <!-- Encabezado -->
+    <%- include('partials/header') %>
+	<!-- Contenedor principal -->
+	<div class="contenedor">
+		<div class="column">
+			<!-- todos los productos -->
+				<div class="col-12">
+					<h2 class="products-title" id="productName" ><%= producto.product_name%> </h2>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<figure class="product-box_image">
+							<img id="productImg" src="/img/zapatillas_img/<%=producto.product_img%>.jpg" alt="Modelo <%= producto.product_name%>">
+						</figure>
+					</section>
+				</div>
+				<div class="column">
+					<p>
+						<p> <button class="btn-celeste"><a class="botonCrear" href="/products/create/">CREAR PRODUCTO</a> </button></p>
+						<p> <button class="btn-celeste"><a class="botonEditar" href="/products/edit/<%= producto.product_id%>">EDITAR</a></button></p>					
+						<button class="btn-celeste"> <a class="botonVolver" href="/">ATRAS </a></button>
+				</p>
+			</div>
+	</div>
+			<!-- /todos los productos -->
+	</div>
+
+
+    <!--Pie de pagina-->
+    <%- include('partials/footer') %>
+</body>
+</html>

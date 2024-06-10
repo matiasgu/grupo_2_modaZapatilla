@@ -34,7 +34,7 @@ router.get('/logout', usersController.logout);
 
 //Usuario Logueado
 router.get('/check', function (req, res) {
-    if (req.session.usuarioLogueado == undefined) {
+    if (req.session.userToLogin == undefined) {
         res.send('No estás logueado');
     } else {
         res.send('Usuario Logueado: ' + req.session.usuarioLogueado.user_email);
