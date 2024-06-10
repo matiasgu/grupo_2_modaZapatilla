@@ -130,7 +130,61 @@ logout: (req, res) => {
 
     // Redirige al usuario a la página principal
     return res.redirect('/');
-}
+},
+update: async (req, res) => {
+    const errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+        try {
+            // Obtener el ID del usuario logueado desde la sesión
+            const userId = req.session.userLogged.id;
+            // Crear un objeto con los datos actualizados del usuario
+            const updatedData = {
+                name: req.body.name,
+                lastname: req.body.lastname,
+                user: req.body.user,
+                email: req.body.email,
+                country: req.body.country,
+                address: req.body.address,
+                phone: req.body.phone,
+            };
+
+            // Actualiza la imagen del usuario si se ha subido una nueva
+            if (req.file) {
+                updatedData.image = req.file.filename;
+            }
+
+            // Actualiza la contraseña si se ha proporcionado una nueva
+            if (req.body.password) {
+                const hashedPassword = await bcrypt.hash(req.body.password, 10);
+                updatedData.password = hashedPassword;
+            }
+
+            // Actualizar el usuario en la base de datos
+            await db.User.update(updatedData, {
+                where: { id: userId }
+            });
+
+            // Buscar el usuario actualizado en la base de datos
+            let userUpdated = await db.User.findOne({ where: { id: userId } });
+            delete userUpdated.dataValues.password;
+            req.session.userLogged = userUpdated;
+
+            return res.redirect('/users/profile');
+        } catch (error) {
+            console.error('Error updating user:', error);
+            return res.render('users/Profile', {
+                errors: { general: { msg: 'Error al actualizar el perfil' } },
+                user: req.session.userLogged
+            });
+        }
+    } else {
+        return res.render('users/Profile', {
+            errors: errors.mapped(),
+            user: req.session.userLogged
+        });
+    }
+},
 
 }
 module.exports = controller;

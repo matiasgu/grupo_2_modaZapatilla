@@ -17,7 +17,7 @@ const userLoggedMiddleware = async (req, res, next) => {
          if(user){ // Si el usuario existe, lo guardamos en session
             delete user.dataValues.password; 
             req.session.userLogged = user;
-            console.log('sin password'+user);
+           /*  console.log('sin password'+user); */
          } 
 
     }

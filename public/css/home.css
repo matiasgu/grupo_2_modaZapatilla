@@ -275,7 +275,17 @@ footer{
     border: 1px solid black;
     z-index: 9999;
 }
+.registro  {
+    display: flex;
+    align-items: center;  /* Align items vertically in the center  */
+     /* justify-content: space-between;  */  /* Distribute items with space between them  */
+    
+ }  
+.nav-bar-logueado {
+    display: flex;
+    /*  align-items: center;  */
 
+}
 @media(min-width: 361px){
     .hambur {
         display: none;

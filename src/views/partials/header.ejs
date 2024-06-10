@@ -1,4 +1,6 @@
+
 <header>
+    
     <div class="contenedor-header">
         <div class="logo">
             <a href="/"><img src="/img/modaFinal1.png"></a>
@@ -9,14 +11,33 @@
         </form>
         <div class="registro">
             <% if (locals.isLogged) { %><!-- si es false -->
+                <% if(locals.userLogged.role_id === 1) { %>
+                    <a href="/products/product-management">Gestión</a>
+                    <a class="nav-bar-logueado" href="/users/profile" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="/img/imgUsers/<%= locals.userLogged.image %>" width="40" style="border-radius: 100%;">
+                    Hi <%= locals.userLogged.name %> 
+                </a>
+                    <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+                
+                    <% } else { %> 
+                <a class="nav-bar-logueado" href="/users/profile" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
                 <img src="/img/imgUsers/<%= locals.userLogged.image %>" width="40" style="border-radius: 100%;">
                 Hi <%= locals.userLogged.name %> <!-- pongo el nombre y arriba la imagen-->
-                <% } else { %>
-
+            </a>
+                <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+                <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+            
+           
+            <% } %>
+            
+            <% } else { %>
             <a href="/users/register"><i class="fa-regular fa-address-card"></i></a>
             <a href="/users/login"><i class="fa-regular fa-user"></i></a>
-            <% } %>
             <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+            <% } %>
+           
+           
         </div>
 
     </div>
