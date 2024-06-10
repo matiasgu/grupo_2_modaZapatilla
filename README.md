@@ -1,7 +1,10 @@
 <!-- descripcion del proyecto -->
 # Descripcion del proyecto 
 
-Venta de zapatillas para hombres mujeres y niños. Gran variedad de modelos, todos los números. Envíos a todo el país. Stock permanente.
+Somos una empresa de desarrolladores web, que conoce a sus clientes, sus necesidades, sus deseos, ayudando y asesorando para cumplir sus objetivos.
+Preparando la web para que difunda sus actividades y logre llegar a mas personas, empresas, asociaciones, etc.
+En esta oportunidad, el cliente nos confio la Venta de zapatillas para hombres mujeres y niños. Gran variedad de marcas, modelos, todos los números. Envíos a todo el país. Stock permanente. Por ello se desarrollo un sitio web, donde el cliente puede tener su cuenta, realizar compras on-line, recibiendo los productos en su domicilio.
+Tambien para brindarle información al usuario se realizaron tableros con información importante de su negocio.
 <!-- descripciones de los integrante -->
 ## Integrantes
 
