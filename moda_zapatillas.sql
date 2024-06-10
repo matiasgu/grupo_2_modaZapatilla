@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2024 a las 02:30:59
+-- Tiempo de generación: 10-06-2024 a las 21:15:16
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -103,7 +103,8 @@ CREATE TABLE `shopcarts` (
   `shopcart_id` int(8) NOT NULL,
   `user_id` int(10) UNSIGNED DEFAULT NULL,
   `shopcart_date` date NOT NULL,
-  `shopcart_total` float NOT NULL
+  `shopcart_total` float NOT NULL,
+  `cantidad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -138,7 +139,9 @@ INSERT INTO `users` (`id`, `name`, `lastname`, `user`, `password`, `email`, `ima
 (2, 'Mario', 'Bross', 'mario', '12345678', 'mario@gmail.com', '02-Mario', 'Argentina', NULL, '215413323', 2, '2024-06-08 00:30:26', '2024-06-08 00:30:26', NULL),
 (3, 'Homero', 'Simpson', 'homero', '12345678', 'homero@gmail.com', '03-Homero', 'Argentina', NULL, '545545225', 2, '2024-06-08 00:30:26', '2024-06-08 00:30:26', NULL),
 (4, 'Merlina', 'Adams', 'mer', '12345678', 'mer@gmail.com', '04-Merlina', 'Argentina', NULL, '645152124', 2, '2024-06-08 00:30:26', '2024-06-08 00:30:26', NULL),
-(5, 'Arenita', 'Mejillas', 'arenita', '12345678', 'arenita@gmail.com', '05-Arenita', 'Argentina', NULL, '154455224', 2, '2024-06-08 00:30:26', '2024-06-08 00:30:26', NULL);
+(5, 'Arenita', 'Mejillas', 'arenita', '12345678', 'arenita@gmail.com', '05-Arenita', 'Argentina', NULL, '154455224', 2, '2024-06-08 00:30:26', '2024-06-08 00:30:26', NULL),
+(6, 'Spider', 'Man', 'spider', 'spider1234', 'spider@gmail.com', '06-spiderman', 'USA', NULL, '45875587', 2, '2024-06-10 19:08:24', '2024-06-10 19:08:24', NULL),
+(7, 'Batman', 'Sr. de la noche', 'batman', 'batman1234', 'batman@gmail.com', '07-batman', 'USA', NULL, '479812555', 1, '2024-06-10 19:08:24', '2024-06-10 19:14:25', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -210,7 +213,7 @@ ALTER TABLE `shopcarts`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
