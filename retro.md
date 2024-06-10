@@ -54,3 +54,5 @@ Se tomaron decisiones mas importantes. Se aumentaron las horas de dedicación al
 
 SPRINT 8
 
+Se realizo la division de trabajo en equipo para llegar al ultimo sprint-
+Se organizo la presentacion del trabajo final.
