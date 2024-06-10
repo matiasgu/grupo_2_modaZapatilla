@@ -9,12 +9,12 @@
 		<div class="column">
 			<!-- todos los productos -->
 			<div class="col-12">
-				<h2 class="products-title"><%= producto.product_name%> </h2>
+				<h2 class="products-title" id="productName" ><%= producto.product_name%> </h2>
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<figure class="product-box_image">
-						<img src="/img/zapatillas_img/<%=producto.product_img%>.jpg" alt="Modelo <%= producto.product_name%>">
+						<img id="productImg" src="/img/zapatillas_img/<%=producto.product_img%>.jpg" alt="Modelo <%= producto.product_name%>">
 					</figure>
 					<!-- <p>
 							<p> <a class="botonCrear" href="/products/create/">CREAR PRODUCTO</a></p>
@@ -32,7 +32,7 @@
 					<i class="fas fa-truck"></i>
 				</span>
 				<span>
-					<p><h3 class="h4-informacion">PRECIO FINAL ARG $ <%= producto.product_price%><h3></p>
+					<p><h3 class="h4-informacion" id="productPrice" >PRECIO FINAL ARG $ <%= producto.product_price%><h3></p>
 				</span>
 				<p><h4 class="h4-informacion-mayuscula">MARCA <%= producto.product_brand%></h3></p>
 				<%if (producto.product_discount !== null) { %>
@@ -99,39 +99,44 @@
 				</div>
 				<div class="quantity-selector">
 					<div class="qty">
-						<input type="number" name="quantityQuick" id="quantity-null" size="2" value="1" min="0" max="NaN" data-available="NaN" data-minimum="1.0" data-product-limit="999">
+						<input type="number" name="quantityQuick" id="quantity" size="2" value="1" min="0" max="NaN" data-available="NaN" data-minimum="1.0" data-product-limit="999">
 					</div>
 				</div>
 				<!-- /SELECCION CANTIDAD -->
 				<p>
 					<!-- <a href="/shopCarts/addCarrito/"> -->
-					<button class="add-to-cart-btn" onclick="agregarProducto('product')" type="button"> AGREGAR AL CARRITO</button>
+					<button class="add-to-cart-btn" onclick="agregarProducto()" type="button"> AGREGAR AL CARRITO</button>
 					<!-- </a>     -->
 				</p>
 				<!-- Contenedor de la ventana emergente -->
 				<div id="ventanaEmergente" style="display: none;">
 					<h2>Mi Carrito de compras</h2>
-					<ul id="carrito"></ul>
 					<table>
 						<thead>
 						  <tr>
 							<th>Nombre Producto</th>
 							<th>Vista miniatura</th>
+							<th>Talle</th>
 							<th>Precio</th>
 							<th>Cantidad</th>
 							<th>Total</th>
+							<th>Eliminar</th>
 						  </tr>
 						</thead>
 						<tbody>
 						  <tr>
-							<td><%= producto.product_name%> </td>
-							<td><img src="/img/zapatillas_img/<%=producto.product_img%>.jpg"></td>
-							<td> <%= producto.product_price%></td>
-							<th>1</th>
-							<th>$1056498</th>
-						  </tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<th></th>
+							<th></th>
+							<th>
+								<i class="fa-solid fa-trash"></i>>
+							</th>
+						    </tr>
 						</tbody>
 					  </table>
+					<button class="button-ventana-emergente" id="btn-opc-cancelar">SEGUIR COMPRANDO</button>
 					<a href="/shopCarts/addCarrito/"> 
 						<button class="button-ventana-emergente" id="btn-opc-comprar">COMPRAR</button>
 					</a> 

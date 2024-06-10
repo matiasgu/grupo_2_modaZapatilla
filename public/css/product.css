@@ -162,7 +162,6 @@ main{
     text-transform: uppercase;
 }
 
-
 .h4-informacion {
     color: #333333; /* Gris oscuro */
     font-weight: bold; /* Negrita */
@@ -182,6 +181,36 @@ span:hover {
   color: #fb6900; /* Color al pasar el cursor sobre el span */
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid black;
+  overflow-x: auto;
+  color: #fb6900;
+  font-weight: bold; /* Negrita */  
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+li:active {
+  background-color: #004853;
+  color: #fb6900;
+  font-weight: bold; /* Negrita */  
+}
+
+.img-table {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 /* Estilos para la lista de tamaños */
 .variation-attribute-size {
   display: inline-block;
@@ -308,6 +337,21 @@ input[type=number] {
       .column {
         min-width: 100%;
       }
+}
+
+
+@media screen and (max-width: 600px) {
+  table {
+      width: 100%;
+  }
+  
+  table, th, td {
+      display: block;
+  }
+  
+  th, td {
+      text-align: center;
+  }
 }
 /*
 section{
