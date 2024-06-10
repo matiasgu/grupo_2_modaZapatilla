@@ -46,5 +46,11 @@ Se acordo tener una persona como lider. Carla logro llevar el trabajo a realizar
 
 SPRINT 6-7
 
+El grupo atraveso tener a los integrantes con eventos personales, sin embargo se mantuvo la comunicación para que todos sepan como iban a responder a las tareas a realizar.
+Se logro poner al dia los conocimientos de los integrantes, pudiendo repartir las tareas.
+Se realizaron reuniones virtuales mas seguidas.
+Se mejoro la comunicación, pudiendonos ayudar a resolver inconvenientes, a guiarnos como realizar las tareas, a buscar mas herramientas para trabajar, a compartir conocimientos.
+Se tomaron decisiones mas importantes. Se aumentaron las horas de dedicación al trabajo.
 
 SPRINT 8
+
