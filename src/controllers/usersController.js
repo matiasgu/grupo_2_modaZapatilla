@@ -104,7 +104,7 @@ const controller = {
         }
 
         // Redirige al usuario a la home
-        return res.redirect('/');
+        return res.redirect('/adm');
     } else {
         // Si la autenticación falla, renderiza la vista de login con errores y datos antiguos
         return res.render('users/login', {
