@@ -10,7 +10,7 @@ const usersController = require('../controllers/usersController');
 const upload = require('../middleware/routeMiddleware/multerMiddleware');
 const validateRegister = require('../middleware/routeMiddleware/validateRegisterMiddleware');
 const validateLogin = require('../middleware/routeMiddleware/validateLoginMiddleware');
-const validateProfile = require('../middleware/routeMiddleware/validateProfileMiddleware');
+/* const validateProfile = require('../middleware/routeMiddleware/validateProfileMiddleware'); */
 //middleware de ruta 
 const guestMiddleware = require('../middleware/routeMiddleware/guestMiddleware');//si estoy login, me muestre el perfil
 const authMiddleware = require('../middleware/routeMiddleware/authMiddleware');//si no esoy login, no me deje entrar al perfil

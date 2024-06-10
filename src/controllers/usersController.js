@@ -103,7 +103,11 @@ const controller = {
             res.cookie('userEmail', req.body.email, { maxAge: 60000 });// 1 min
         }
 
+
+        // Redirige al usuario a la home
+
         // Redirige al usuario a la pagina de administrador
+
         return res.redirect('/adm');
     } else {
         // Si la autenticación falla, renderiza la vista de login con errores y datos antiguos

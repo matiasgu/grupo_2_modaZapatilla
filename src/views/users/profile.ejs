@@ -11,13 +11,13 @@
                 
                 <section id="registro-formulario">
                     <article class="account-main-row">
-                        <p class="account-subtitle">Hola <%= user.name %>!</p>
+                        <h5 class="account-subtitle">Hola <%= user.name %>!</h5>
                         <div class="profile-image">
                             <img src="/img/imgUsers/<%= user.image ? user.image : 'default.png' %>" alt="Profile Picture" width="360" style="border-radius: 100%;">
                         </div>
                     </article>
                     <article class="account-main-row">
-                    <h2>DATOS PERSONALES</h2>
+                    <h5>DATOS PERSONALES</h5>
                     <!-- Formulario de registro -->
                     <form method="post" action="<%= '/users/update/'+user.id+'?_method=PUT'%>"  enctype="multipart/form-data">
                         <!-- Campo: Nombre -->
@@ -111,7 +111,7 @@
                             <button class="button-registro" type="submit">Guardar Datos</button>
                         </div>
                     </form>
-                    <h2>MODIFICA TU CONTRASEÑA</h2>
+                    <h5>MODIFICA TU CONTRASEÑA</h5>
                     <form action="/users/profile" method="post" enctype="multipart/form-data">
                      <!-- Campo: Contraseña -->
                      <label for="contrasena">Contraseña Actual:</label>
