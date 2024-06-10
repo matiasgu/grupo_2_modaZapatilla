@@ -50,9 +50,9 @@ function toggleVentanaEmergente() {
                             </table>
                             <h3>Items: 1 Total Compra: $164421,00</h3>
     					    <button class="button-ventana-emergente" id="btn-opc-cancelar">SEGUIR COMPRANDO</button>
-      					   <a href="/shopCarts/addCarrito/"> 
-						       <button class="button-ventana-emergente" id="btn-opc-comprar">COMPRAR</button>
-					       </a> 
+      					  <a href="/users/login"> 
+						          <button class="button-ventana-emergente" id="btn-opc-comprar">COMPRAR</button>
+					        </a> 
 					       <button class="button-ventana-emergente" id="btn-opc-cancelar">CANCELAR</button>`;
     } else {
       ventana.style.display = 'none';
