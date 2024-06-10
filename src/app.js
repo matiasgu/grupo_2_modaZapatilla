@@ -51,7 +51,7 @@ app.use('/api/products', apiProductsRoutes);
 app.use('/api/category', apiCategoryRoutes);
 
 /////**********OTHERS*********
-app.listen(3000, () => console.log('Server running at http://localhost:3000'));
+app.listen(3000, () => console.log('Server running at http://localhost:3001'));
 
 // ************ DON'T TOUCH FROM HERE ************
 // ************ catch 404 and forward to error handler ************
