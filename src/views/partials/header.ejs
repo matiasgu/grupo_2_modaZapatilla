@@ -8,8 +8,14 @@
             <button type="submit" class="buscador-boton"><i class="fas fa-search"></i></button>
         </form>
         <div class="registro">
+            <% if (locals.isLogged) { %><!-- si es false -->
+                <img src="/img/imgUsers/<%= locals.userLogged.image %>" width="40" style="border-radius: 100%;">
+                Hi <%= locals.userLogged.name %> <!-- pongo el nombre y arriba la imagen-->
+                <% } else { %>
+
             <a href="/users/register"><i class="fa-regular fa-address-card"></i></a>
             <a href="/users/login"><i class="fa-regular fa-user"></i></a>
+            <% } %>
             <a href="/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
 

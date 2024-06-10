@@ -20,6 +20,7 @@ const controller = {
     login: (req, res) => {
         console.log('estoy por loguearme');
         res.render('users/login'); // Renderiza la vista de inicio de sesión
+    
     },
 
     // Formulario para registrar usuario
@@ -79,7 +80,7 @@ const controller = {
     
     processLogin: async(req, res) => {
         let errors = validationResult(req);
-
+       
         if (!errors.isEmpty()) {
             return res.render('users/login', {
                 errors: errors.mapped(),
