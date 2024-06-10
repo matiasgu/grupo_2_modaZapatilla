@@ -40,7 +40,7 @@ app.use('/', mainRoute);
 app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
 app.use('/shopcarts', shopCartsRoutes);
-app.use('/api', apiUsersRoutes)
+app.use('/api', apiUsersRoutes);
 
 /////**********OTHERS*********
 app.listen(3000, () => console.log('Server running at http://localhost:3000'));
