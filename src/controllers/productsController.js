@@ -22,6 +22,15 @@ const controller = {
 			})
 	},
 
+	adm: (req, res) => {
+		/*Codigo sin BD
+		res.render('productDetail', {productos: products});
+		*/
+		db.Productos.findByPk(req.params.id)
+			.then(function(producto) {
+				res.render('productAdm',{producto: producto});
+			})
+	},
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		/*Codigo sin BD

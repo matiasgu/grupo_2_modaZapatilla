@@ -1,9 +1,10 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
     <%- include('partials/head') %>
 <body>
-    <!-- encabezado -->
+    <!-- Encabezado -->
     <%- include('partials/header') %>
+	<!-- Contenedor principal -->
     <!-- parte de los preductos -->
     <main>
         <div class="contenedor-main">
@@ -11,50 +12,24 @@
             <div class="contenedor-productos">
             <% for (let i=0; i<productos.length; i++){ %>
                 <div class="producto">
-                    <a href="/products/<%= productos[i].product_id%>">
+                    <a href="/products/adm/<%= productos[i].product_id%>">
                         <img class="producto-imagen" src="../img/zapatillas_img/<%= productos[i].product_img %>.jpg" alt="">
                     </a>
                     <div class="producto-descripcion">                        
                         <p class="titulo"><%= productos[i].product_name %></p>
-                        <p class="marca"><%= productos[i].product_brand %></p>                        
+                        <p class="titulo"><%= productos[i].product_brand %></p>                        
                         <p class="precios"><%= productos[i].product_price %></p>
                         <%if (productos[i].product_discount !== null ) { %>
                             <p class="descuento">OFERTA <%= productos[i].product_discount %> %</p>  
-                        <% } %>  
-                        <a href="/product/create/">
-                            <button class="redirect">➕</button>
-                        </a>
-                        <a href="/product/edit/<%= productos[i].product_id %>">
-                            <button class="redirect">✏️</button>
-                        </a>
-                        <form action="/product/<%= productos[i].product_id %>?_method=DELETE" method="post">
-                            <button type="submit" class="redirect">✖️</button>
-                        </form>               
+                        <% } %>               
                     </div>
                 </div>
             <% } %>
             </div>
             <!--FIN TODOS LOS PRODUCTOS-->
-            <div class="hombres-mujeres">
-                <a href="">
-                    <img src="/img/imgProductDetail/hombres1.jpg" alt="">    
-                </a>
-                <a href="">
-                    <img src="/img/imgProductDetail/mujeres.jpg" alt="">
-                </a>  
-            </div>
-            <div class="descuentos-promociones">
-                
-                <a href="">
-                    <img src="/img/imgProductDetail/descuentos.jpg" alt="">
-                   
-                </a>
 
-            </div>
-        </div>
-    </main>
-    <!-- pie de pagina -->
+
+    <!--Pie de pagina-->
     <%- include('partials/footer') %>
-    
 </body>
 </html>

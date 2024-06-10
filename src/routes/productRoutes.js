@@ -8,6 +8,10 @@ const productsController = require('../controllers/productsController');
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.index); 
 
+
+/*** GET PRODUCT ADM ***/ 
+router.get('/adm/:id', productsController.adm); 
+
 // /*** CREATE ONE PRODUCT ***/ 
 router.get('/create/', productsController.create); 
 router.post('/store/', productsController.store); 

@@ -38,7 +38,7 @@ router.put('/update/:id', upload.single('image'), usersController.update);
 
 //Usuario Logueado
 router.get('/check', function (req, res) {
-    if (req.session.usuarioLogueado == undefined) {
+    if (req.session.userToLogin == undefined) {
         res.send('No estás logueado');
     } else {
         res.send('Usuario Logueado: ' + req.session.usuarioLogueado.user_email);
