@@ -32,6 +32,10 @@ router.get('/profile', authMiddleware,usersController.profile);
 
 router.get('/logout', usersController.logout);
 
+router.put('/update/:id', upload.single('image'), usersController.update);
+/* router.patch('/updatePassword/:id', usersController.updatePassword); */
+
+
 //Usuario Logueado
 router.get('/check', function (req, res) {
     if (req.session.usuarioLogueado == undefined) {

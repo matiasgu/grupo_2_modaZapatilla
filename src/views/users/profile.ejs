@@ -19,7 +19,7 @@
                     <article class="account-main-row">
                     <h2>DATOS PERSONALES</h2>
                     <!-- Formulario de registro -->
-                    <form action="/users/update" method="post" enctype="multipart/form-data">
+                    <form method="post" action="<%= '/users/update/'+user.id+'?_method=PUT'%>"  enctype="multipart/form-data">
                         <!-- Campo: Nombre -->
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="name" name="name" placeholder="Ej: Juan Jose" 
