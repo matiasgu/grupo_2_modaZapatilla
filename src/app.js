@@ -35,12 +35,17 @@ const productsRoutes = require('./routes/productRoutes'); // Rutas /products
 const usersRoutes = require('./routes/userRoutes'); // Rutas /users
 const shopCartsRoutes = require('./routes/shopCartRoutes'); // Rutas /carritoCompras
 const apiUsersRoutes = require('./routes/api/apiUsers.routes'); 
+const apiProductsRoutes = require('./routes/api/apiProducts.routes');
+const apiCategoryRoutes = require('./routes/api/apiCategory.routes');
+
 
 app.use('/', mainRoute);
 app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
 app.use('/shopcarts', shopCartsRoutes);
-app.use('/api', apiUsersRoutes);
+app.use('/api/users', apiUsersRoutes);
+app.use('/api/products', apiProductsRoutes);
+app.use('/api/category', apiCategoryRoutes);
 
 /////**********OTHERS*********
 app.listen(3000, () => console.log('Server running at http://localhost:3000'));
