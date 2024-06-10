@@ -42,6 +42,8 @@ SPRINT 3 - Retrospectiva Estrella de Mar
 
 SPRINT 4 - 5
 
+Se acordo tener una persona como lider. Carla logro llevar el trabajo a realizar, analizando las capacidades de programacion de cada uno, se asignaron tareas para completar los sprints.
+
 SPRINT 6-7
 
 
