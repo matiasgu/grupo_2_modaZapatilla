@@ -6,7 +6,17 @@
         <!-- encabezado -->
         <%- include('../partials/header') %>
             <main>
+                
+                    
+                
                 <section id="registro-formulario">
+                    <article class="account-main-row">
+                        <p class="account-subtitle">Hola <%= user.name %>!</p>
+                        <div class="profile-image">
+                            <img src="/img/imgUsers/<%= user.image ? user.image : 'default.png' %>" alt="Profile Picture">
+                        </div>
+                    </article>
+                    <article class="account-main-row">
                     <h2>MODIFICÁ TUS DATOS PERSONALES</h2>
                     <!-- Formulario de registro -->
                     <form action="/users/profile" method="post" enctype="multipart/form-data">
@@ -14,7 +24,7 @@
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="name" name="name" placeholder="Ej: Juan Jose" 
                         <% if (locals.errors && errors.name ) { %> class="form-control is-invalid" <% } %>
-                        value="<%= locals.oldData ? oldData.name : null %>">
+                        value="<%= locals.errors ? user.name : user.name %>">
                 <% if (locals.errors && errors.name) { %>
                     <div class="text-danger">
                         <%= errors.name.msg %>
@@ -25,7 +35,7 @@
                         <label for="apellido">Apellido:</label>
                         <input type="text" id="lastname" name="lastname" placeholder="Ej: Perez" 
                         <% if (locals.errors && errors.lastname ) { %> class="form-control is-invalid" <% } %>
-                        value="<%= locals.oldData ? oldData.lastname : '' %>">
+                        value="<%= locals.errors ? user.lastname : user.lastname %>">
                 <% if (locals.errors && errors.lastname) { %>
                     <div class="text-danger">
                         <%= errors.lastname.msg %>
@@ -36,41 +46,19 @@
                         <label for="usuario">Nombre de usuari@:</label>
                         <input type="text" id="user" name="user" placeholder="Nombre de usuario" 
                         <% if (locals.errors && errors.user ) { %> class="form-control is-invalid" <% } %>
-                        value="<%= locals.oldData ? oldData.user : '' %>">
+                        value="<%= locals.errors ? user.user : user.user %>">
                 <% if (locals.errors && errors.user) { %>
                     <div class="text-danger">
                         <%= errors.user.msg %>
                     </div>
                 <% } %>
                         
-                        <!-- Campo: Contraseña -->
-                        <label for="contrasena">Contraseña:</label>
-                        <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" 
-                        <% if (locals.errors && errors.password ) { %> class="form-control is-invalid" <% } %>
-                        value="<%= locals.oldData ? oldData.password : null %>"
-                        >
-                        <% if (locals.errors && errors.password) { %>
-                            <div class="text-danger">
-                                <%= errors.password.msg %>
-                            </div>
-                        <% } %>
-                        <!-- Campo: Confirmar Contraseña -->
-                        <label for="confirmar-contrasena">Confirmar Contraseña:</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword"
-                            placeholder="Confirme su contraseña" 
-                            <% if (locals.errors && errors.confirmPassword ) { %> class="form-control is-invalid" <% } %>
-                            value="<%= locals.oldData ? oldData.confirmPassword : null %>"
-                            >
-                             <% if (locals.errors && errors.confirmPassword) { %>
-                                <div class="text-danger">
-                                    <%= errors.confirmPassword.msg %>
-                                </div>
-                            <% } %> 
+                       
                         <!-- Campo: Correo -->
                         <label for="correo">Correo:</label>
                         <input type="text" id="email" name="email" placeholder="Ej: juanperez@gmail.com" 
                         <% if (locals.errors && errors.email ) { %> class="form-control is-invalid" <% } %>
-                        value="<%= locals.oldData ? oldData.email : null %>">
+                        value="<%= locals.errors ? user.email : user.email %>">
 							
 								<% if (locals.errors && errors.email) { %>
 									<div class="text-danger">
@@ -97,7 +85,7 @@
 									<% for (const oneCountry of countries) { %>
 										<option 
 											value="<%= oneCountry %>"
-											<%= locals.oldData && (oneCountry === oldData.country) ? 'selected' : null %> 
+											<%= user && (oneCountry === user.country) ? 'selected' : null %> 
 										> <%= oneCountry %> </option>
 									<% } %>
 								</select>
@@ -109,31 +97,64 @@
                         <!-- Campo: Celular o Teléfono (opcional) -->
                         <label for="celular">Celular o Teléfono (opcional):</label>
                         <input type="tel" id="phone" name="phone" placeholder="Ej: 1545000000"
-                        value="<%= locals.oldData ? oldData.phone : '' %>">
+                        value="<%= locals.errors ? user.phone : user.phone %>">
                 <% if (locals.errors && errors.phone) { %>
                     <div class="text-danger">
                         <%= errors.phone.msg %>
                     </div>
                 <% } %>
 
-                        <!-- Checkbox: Aceptar términos y condiciones -->
-                        <label>
-                            <input type="checkbox" id="acepto-terminos" name="acepto-terminos" 
-                            
-                            >
-                            Acepto las políticas de privacidad y términos y condiciones
-                        </label>
-                        <% if (locals.errors && errors['acepto-terminos']) { %>
-                            <div class="text-danger">
-                                <%= errors['acepto-terminos'].msg %>
-                            </div>
-                        <% } %>
+                        
+                        
                         <!-- Botón: Registrarme -->
                         <div id="botones">
-                            <button class="button-registro" type="submit">Registrarme</button>
+                            <button class="button-registro" type="submit">Guardar Datos</button>
                         </div>
                     </form>
+                    <h2>MODIFICA TU CONTRASEÑA</h2>
+                    <form action="/users/profile" method="post" enctype="multipart/form-data">
+                     <!-- Campo: Contraseña -->
+                     <label for="contrasena">Contraseña Actual:</label>
+                     <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" 
+                     <% if (locals.errors && errors.password ) { %> class="form-control is-invalid" <% } %>
+                     value="<%= locals.oldData ? oldData.password : null %>"
+                     >
+                     <% if (locals.errors && errors.password) { %>
+                         <div class="text-danger">
+                             <%= errors.password.msg %>
+                         </div>
+                     <% } %>
+                     <!-- Campo: Contraseña -->
+                     <label for="contrasena">Nueva Contraseña:</label>
+                     <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" 
+                     <% if (locals.errors && errors.password ) { %> class="form-control is-invalid" <% } %>
+                     value="<%= locals.oldData ? oldData.password : null %>"
+                     >
+                     <% if (locals.errors && errors.password) { %>
+                         <div class="text-danger">
+                             <%= errors.password.msg %>
+                         </div>
+                     <% } %>
+                     <!-- Campo: Confirmar Contraseña -->
+                     <label for="confirmar-contrasena">Confirmar Nueva Contraseña:</label>
+                     <input type="password" id="confirmPassword" name="confirmPassword"
+                         placeholder="Confirme su contraseña" 
+                         <% if (locals.errors && errors.confirmPassword ) { %> class="form-control is-invalid" <% } %>
+                         value="<%= locals.oldData ? oldData.confirmPassword : null %>"
+                         >
+                          <% if (locals.errors && errors.confirmPassword) { %>
+                             <div class="text-danger">
+                                 <%= errors.confirmPassword.msg %>
+                             </div>
+                         <% } %> 
+                    <!-- Botón: Registrarme -->
+                    <div id="botones">
+                        <button class="button-registro" type="submit">Guardar Contraseña</button>
+                    </div>
+                    </form>
+                </article>
                 </section>
+            
             </main>
             <!-- pie de pagina -->
             <%- include('../partials/footer') %>

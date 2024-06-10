@@ -11,7 +11,7 @@
         <section id="login-usuario"> <!-- cargar-producto -->
             <h2>Ingresar</h2>
             
-            <% if (locals.errors && locals.errors.email.msg === 'no') { %>
+            <% if (locals.errors && locals.errors.email && locals.errors.email.msg === 'no') { %>
                 <p style="color: red">CREDENCIALES INVALIDA</p>
             <% } %>
             <!-- Formulario de registro -->
@@ -44,12 +44,18 @@
                 
                 <!-- Botón: Registrarme -->
                 <div id="botones">
-                    <button type="submit">Iniciar Sesión </button>
+                    <button class="button-registro" type="submit">Iniciar Sesión </button>
                    
                 </div>
                 <div class="recordar">
-                <div class="checkbox-recordar">
-                    <input type="checkbox" name="remember" id="remember">
+                <!-- <div class="checkbox-recordar">
+                    <input type="checkbox" name="remember" id="acepto-terminos">
+                    <label for="remember">Recordar</label>
+                </div> -->
+                <div class="checkbox-container">
+                    <input type="checkbox" id="remember" name="remember" 
+                    
+                    >
                     <label for="remember">Recordar</label>
                 </div>
                 <div>
@@ -57,7 +63,8 @@
                 </div>
                 </div>
                 <div id="botones2">
-                    <button class="button-crear-cuenta" type="submit">Crear Cuenta Nueva </button>
+                    <!-- <button href="/user/register" class="button-crear-cuenta" >Crear Cuenta Nueva </button> -->
+                    <a class="button-crear-cuenta" href="/users/register">  Crear Cuenta Nueva</a>
                 </div>
                 </div>
             </form>

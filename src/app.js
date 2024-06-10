@@ -10,6 +10,8 @@ const cookieParser = require('cookie-parser');
 // ************ express() - (don't touch) ************
 const app = express();
 
+const userLoggedMiddleware = require('./middleware/appMiddleware/userLoggedMiddleware')
+
 // ************ Middlewares - (don't touch) ************
 app.use(express.static('public'));  // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false })); //para poder utilizar body
@@ -22,6 +24,7 @@ app.use(session ({
  resave: false,
  saveUninitialized:false,
 }));
+app.use(userLoggedMiddleware);// va despues de session
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
