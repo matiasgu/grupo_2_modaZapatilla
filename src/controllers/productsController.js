@@ -87,7 +87,7 @@ const controller = {
 				product_discount: req.body.product_discount,
 				product_img: req.body.product_img
 			}).then(() =>
-				res.redirect('/'));
+				res.redirect('/adm'));
 	},
 
 	// Update - Form to edit
@@ -142,7 +142,7 @@ const controller = {
 				product_id: req.params.id
 			}
 		}).then(() => 
-			res.redirect('/'));
+			res.redirect('/adm'));
 	},
 
 	// Delete - Delete one product from DB
